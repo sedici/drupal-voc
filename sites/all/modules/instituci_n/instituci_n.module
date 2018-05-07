@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Institución feature.
+ */
+
+include_once 'instituci_n.features.inc';
