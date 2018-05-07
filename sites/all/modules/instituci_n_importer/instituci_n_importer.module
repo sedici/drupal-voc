@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Institución Importer feature.
+ */
+
+include_once 'instituci_n_importer.features.inc';

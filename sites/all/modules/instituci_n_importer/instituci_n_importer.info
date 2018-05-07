@@ -1,0 +1,9 @@
+name = Institución Importer
+core = 7.x
+package = AuthVoc
+version = 7.x-0.1
+dependencies[] = ctools
+dependencies[] = feeds
+features[ctools][] = feeds:feeds_importer_default:1
+features[features_api][] = api:2
+features[feeds_importer][] = institution_importer
