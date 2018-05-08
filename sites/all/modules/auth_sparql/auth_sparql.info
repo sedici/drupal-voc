@@ -1,0 +1,15 @@
+name = Auth SPARQL
+core = 7.x
+package = AuthVoc
+version = 7.x-0.1
+dependencies[] = arc2_store
+dependencies[] = entity
+dependencies[] = rdf_indexer
+dependencies[] = rdfx
+dependencies[] = search_api
+features[arc2_store_settings][] = default
+features[ctools][] = arc2_store:arc2_store:1
+features[features_api][] = api:2
+features[search_api_index][] = default_node_index
+features[search_api_index][] = filiacion_indexer
+features[search_api_server][] = rdf_indexing_server

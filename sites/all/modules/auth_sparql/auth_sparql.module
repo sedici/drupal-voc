@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Auth SPARQL feature.
+ */
+
+include_once 'auth_sparql.features.inc';
