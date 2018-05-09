@@ -1,0 +1,8 @@
+name = AuthVoc
+core = 7.x
+package = AuthVoc
+version = 7.x-0.1
+dependencies[] = auth_ctypes
+dependencies[] = auth_importer
+dependencies[] = auth_sparql
+features[features_api][] = api:2
