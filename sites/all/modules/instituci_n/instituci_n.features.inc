@@ -37,39 +37,11 @@ function instituci_n_node_info() {
 function instituci_n_rdf_default_mappings() {
   $rdf_mappings = array();
 
-  // Exported RDF mapping: field_filiaci_n_compuesta
-  $rdf_mappings['field_collection_item']['field_filiaci_n_compuesta'] = array(
-    'field_institucion' => array(
-      'type' => 'property',
-      'predicates' => array(
-        0 => 'foaf:Organization',
-      ),
-    ),
-    'field_rol' => array(
-      'type' => 'property',
-      'predicates' => array(
-        0 => 'cerif:role',
-      ),
-    ),
-    'field_fecha_de_inicio' => array(
-      'type' => 'property',
-      'predicates' => array(
-        0 => 'cerif:startDate',
-      ),
-    ),
-    'field_fecha_de_fin' => array(
-      'type' => 'property',
-      'predicates' => array(
-        0 => 'cerif:endDate',
-      ),
-    ),
-  );
-
-  // Exported RDF mapping: persona
-  $rdf_mappings['node']['persona'] = array(
+  // Exported RDF mapping: instituci_n
+  $rdf_mappings['node']['instituci_n'] = array(
     'rdftype' => array(
-      0 => 'foaf:Person',
-      1 => 'schema:Person',
+      0 => 'sioc:Item',
+      1 => 'foaf:Organization',
     ),
     'created' => array(
       'predicates' => array(
@@ -121,40 +93,29 @@ function instituci_n_rdf_default_mappings() {
       ),
       'type' => 'property',
     ),
-    'field_apellido' => array(
-      'type' => 'property',
-      'predicates' => array(
-        0 => 'foaf:familyName',
-      ),
-    ),
-    'field_nombre' => array(
-      'type' => 'property',
-      'predicates' => array(
-        0 => 'foaf:givenName',
-      ),
-    ),
-    'field_cuil' => array(
-      'type' => 'property',
-      'predicates' => array(
-        0 => 'dc:identifier',
-      ),
-    ),
-    'field_mail' => array(
-      'type' => 'property',
-      'predicates' => array(
-        0 => 'foaf:mbox',
-      ),
-    ),
-    'field_filiaci_n' => array(
+    'field_parent' => array(
       'type' => 'property',
       'predicates' => array(
         0 => 'foaf:Organization',
       ),
     ),
-    'field_filiaci_n_compuesta' => array(
+    'field_padre' => array(
       'type' => 'property',
       'predicates' => array(
-        0 => 'cerif:linksToOrganisationUnit',
+        0 => 'skos:broader',
+      ),
+    ),
+    'field_abreviatura' => array(
+      'type' => 'property',
+      'predicates' => array(
+        0 => 'sioc:id',
+      ),
+    ),
+    'field_nombre_institucion' => array(
+      'type' => 'property',
+      'predicates' => array(
+        0 => 'foaf:name',
+        1 => 'schema:name',
       ),
     ),
   );
