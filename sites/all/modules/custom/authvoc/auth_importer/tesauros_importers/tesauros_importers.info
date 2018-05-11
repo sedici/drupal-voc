@@ -1,0 +1,14 @@
+name = Tesauros Importers
+core = 7.x
+package = AuthVoc
+version = 7.x-0.1
+dependencies[] = ctools
+dependencies[] = feeds
+dependencies[] = taxonomy
+features[ctools][] = feeds:feeds_importer_default:1
+features[features_api][] = api:2
+features[feeds_importer][] = descriptores_sedici_importer
+features[feeds_importer][] = materias_importer
+features[feeds_importer][] = tesauro_eurovoc_importer
+features[feeds_importer][] = tesauro_sedici_importer
+features[feeds_importer][] = tesauro_unesco_importer
