@@ -1,7 +1,7 @@
 name = Persona
 core = 7.x
 package = AuthVoc
-version = 7.x-0.6
+version = 7.x-0.7
 dependencies[] = auto_nodetitle
 dependencies[] = ctools
 dependencies[] = date
@@ -37,6 +37,8 @@ features[field_instance][] = node-persona-field_filiaci_n_compuesta
 features[field_instance][] = node-persona-field_mail
 features[field_instance][] = node-persona-field_nombre
 features[node][] = persona
+features[rdf_mappings][] = field_collection_item-field_filiaci_n_compuesta
+features[rdf_mappings][] = node-persona
 features[variable][] = comment_anonymous_persona
 features[variable][] = comment_default_mode_persona
 features[variable][] = comment_default_per_page_persona
