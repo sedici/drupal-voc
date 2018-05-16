@@ -1,0 +1,7 @@
+name = Auth Views
+core = 7.x
+package = AuthVoc
+version = 7.x-0.1
+dependencies[] = persona_view
+dependencies[] = views_ui
+features[features_api][] = api:2
