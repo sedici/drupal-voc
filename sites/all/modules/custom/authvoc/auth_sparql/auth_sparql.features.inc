@@ -57,7 +57,8 @@ function auth_sparql_default_search_api_index() {
         "field_mail" : { "type" : "list\\u003Ctext\\u003E" },
         "field_nombre" : { "type" : "text" },
         "field_nombre_institucion" : { "type" : "text" },
-        "search_api_language" : { "type" : "string" }
+        "search_api_language" : { "type" : "string" },
+        "type" : { "type" : "string" }
       }
     },
     "enabled" : "1",
