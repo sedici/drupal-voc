@@ -1,7 +1,7 @@
 name = Institución
 core = 7.x
 package = AuthVoc
-version = 7.x-0.3
+version = 7.x-0.4
 dependencies[] = auto_nodetitle
 dependencies[] = ctools
 dependencies[] = entityreference
