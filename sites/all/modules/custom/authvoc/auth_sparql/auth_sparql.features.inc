@@ -25,7 +25,7 @@ function auth_sparql_default_search_api_index() {
     "server" : "rdf_indexing_server",
     "item_type" : "node",
     "options" : {
-      "datasource" : { "bundles" : [ "instituci_n", "persona" ] },
+      "datasource" : { "bundles" : [] },
       "index_directly" : 1,
       "cron_limit" : "50",
       "data_alter_callbacks" : { "search_api_alter_node_access" : { "status" : 1, "weight" : "0", "settings" : [] } },
@@ -47,17 +47,15 @@ function auth_sparql_default_search_api_index() {
         }
       },
       "fields" : {
-        "field_abreviatura" : { "type" : "text" },
-        "field_apellido" : { "type" : "text" },
-        "field_dni" : { "type" : "text" },
-        "field_filiaci_n_compuesta" : {
-          "type" : "list\\u003Cinteger\\u003E",
-          "entity_type" : "field_collection_item"
-        },
-        "field_mail" : { "type" : "list\\u003Ctext\\u003E" },
-        "field_nombre" : { "type" : "text" },
-        "field_nombre_institucion" : { "type" : "text" },
+        "author" : { "type" : "integer", "entity_type" : "user" },
+        "body:value" : { "type" : "text" },
+        "changed" : { "type" : "date" },
+        "comment_count" : { "type" : "integer" },
+        "created" : { "type" : "date" },
+        "promote" : { "type" : "boolean" },
         "search_api_language" : { "type" : "string" },
+        "sticky" : { "type" : "boolean" },
+        "title" : { "type" : "text", "boost" : "5.0" },
         "type" : { "type" : "string" }
       }
     },
