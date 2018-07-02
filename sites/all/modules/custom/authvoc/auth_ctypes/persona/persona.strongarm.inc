@@ -13,6 +13,13 @@ function persona_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'ant_pattern_persona';
+  $strongarm->value = '[node:field_apellido], [node:field_nombre]';
+  $export['ant_pattern_persona'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'ant_persona';
   $strongarm->value = '1';
   $export['ant_persona'] = $strongarm;
