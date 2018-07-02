@@ -264,46 +264,6 @@ function persona_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-persona-field_filiaci_n'.
-  $field_instances['node-persona-field_filiaci_n'] = array(
-    'bundle' => 'persona',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 14,
-      ),
-      'teaser' => array(
-        'label' => 'hidden',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_filiaci_n',
-    'label' => '--',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'entityreference',
-      'settings' => array(
-        'match_operator' => 'CONTAINS',
-        'path' => '',
-        'size' => 60,
-      ),
-      'type' => 'entityreference_autocomplete',
-      'weight' => 10,
-    ),
-  );
-
   // Exported field_instance: 'node-persona-field_filiaci_n_compuesta'.
   $field_instances['node-persona-field_filiaci_n_compuesta'] = array(
     'bundle' => 'persona',
@@ -427,9 +387,47 @@ function persona_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-persona-field_old_id'.
+  $field_instances['node-persona-field_old_id'] = array(
+    'bundle' => 'persona',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 16,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_old_id',
+    'label' => 'old id',
+    'required' => FALSE,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 6,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
-  t('--');
   t('Apellido');
   t('DNI');
   t('Fecha de fin');
@@ -439,6 +437,7 @@ function persona_field_default_field_instances() {
   t('Mail');
   t('Nombre');
   t('Rol');
+  t('old id');
 
   return $field_instances;
 }

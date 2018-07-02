@@ -1,7 +1,7 @@
 name = Institución
 core = 7.x
 package = AuthVoc
-version = 7.x-0.4
+version = 7.x-0.5
 dependencies[] = auto_nodetitle
 dependencies[] = ctools
 dependencies[] = entityreference
@@ -35,6 +35,8 @@ features[field_instance][] = node-instituci_n-field_observaciones
 features[field_instance][] = node-instituci_n-field_padre
 features[field_instance][] = node-instituci_n-field_telefono
 features[node][] = instituci_n
+features[rdf_mappings][] = node-instituci_n
+features[variable][] = ant_pattern_persona
 features[variable][] = comment_anonymous_instituci_n
 features[variable][] = comment_default_mode_instituci_n
 features[variable][] = comment_default_per_page_instituci_n

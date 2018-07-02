@@ -13,6 +13,13 @@ function instituci_n_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'ant_pattern_persona';
+  $strongarm->value = '[node:field_apellido], [node:field_nombre]';
+  $export['ant_pattern_persona'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'comment_anonymous_instituci_n';
   $strongarm->value = 0;
   $export['comment_anonymous_instituci_n'] = $strongarm;
