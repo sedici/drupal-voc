@@ -69,9 +69,10 @@ function persona_importer_feeds_importer_default() {
             'language' => 'und',
           ),
           4 => array(
-            'source' => 'filiacion',
-            'target' => 'field_filiaci_n:etid',
+            'source' => 'old_id',
+            'target' => 'field_old_id',
             'unique' => FALSE,
+            'language' => 'und',
           ),
         ),
         'insert_new' => '1',

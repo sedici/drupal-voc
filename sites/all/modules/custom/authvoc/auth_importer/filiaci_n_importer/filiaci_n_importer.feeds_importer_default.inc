@@ -54,9 +54,10 @@ function filiaci_n_importer_feeds_importer_default() {
             'language' => 'und',
           ),
           1 => array(
-            'source' => 'institucion',
+            'source' => 'filiacion',
             'target' => 'field_institucion:etid',
             'unique' => FALSE,
+            'language' => 'und',
           ),
         ),
         'insert_new' => '1',

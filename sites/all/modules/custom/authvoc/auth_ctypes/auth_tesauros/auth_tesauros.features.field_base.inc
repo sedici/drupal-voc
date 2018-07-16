@@ -70,21 +70,6 @@ function auth_tesauros_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
-  // Exported field_base: 'field_id_sedici_terms'.
-  $field_bases['field_id_sedici_terms'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_id_sedici_terms',
-    'indexes' => array(),
-    'locked' => 0,
-    'module' => 'number',
-    'settings' => array(),
-    'translatable' => 0,
-    'type' => 'number_integer',
-  );
-
   // Exported field_base: 'field_id_unesco'.
   $field_bases['field_id_unesco'] = array(
     'active' => 1,

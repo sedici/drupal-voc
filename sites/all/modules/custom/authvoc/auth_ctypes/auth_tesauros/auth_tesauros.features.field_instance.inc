@@ -167,46 +167,6 @@ function auth_tesauros_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance:
-  // 'taxonomy_term-tesauro_sedici-field_id_sedici_terms'.
-  $field_instances['taxonomy_term-tesauro_sedici-field_id_sedici_terms'] = array(
-    'bundle' => 'tesauro_sedici',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => '',
-        ),
-        'type' => 'number_integer',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'taxonomy_term',
-    'field_name' => 'field_id_sedici_terms',
-    'label' => 'id sedici terms',
-    'required' => FALSE,
-    'settings' => array(
-      'max' => '',
-      'min' => '',
-      'prefix' => '',
-      'suffix' => '',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'module' => 'number',
-      'settings' => array(),
-      'type' => 'number',
-      'weight' => 0,
-    ),
-  );
-
   // Exported field_instance: 'taxonomy_term-tesauro_unesco-field_id_unesco'.
   $field_instances['taxonomy_term-tesauro_unesco-field_id_unesco'] = array(
     'bundle' => 'tesauro_unesco',
@@ -251,7 +211,6 @@ function auth_tesauros_field_default_field_instances() {
   t('id eurovoc');
   t('id materia');
   t('id sedici desc');
-  t('id sedici terms');
   t('id unesco');
   t('id_decs');
 

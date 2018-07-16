@@ -101,29 +101,6 @@ function auth_tesauros_taxonomy_default_vocabularies() {
         ),
       ),
     ),
-    'tesauro_sedici' => array(
-      'name' => 'Tesauro SEDICI',
-      'machine_name' => 'tesauro_sedici',
-      'description' => '',
-      'hierarchy' => 0,
-      'module' => 'taxonomy',
-      'weight' => -9,
-      'rdf_mapping' => array(
-        'rdftype' => array(
-          0 => 'skos:ConceptScheme',
-        ),
-        'name' => array(
-          'predicates' => array(
-            0 => 'dc:title',
-          ),
-        ),
-        'description' => array(
-          'predicates' => array(
-            0 => 'rdfs:comment',
-          ),
-        ),
-      ),
-    ),
     'tesauro_unesco' => array(
       'name' => 'Tesauro de UNESCO',
       'machine_name' => 'tesauro_unesco',
