@@ -35,7 +35,6 @@ features[field_instance][] = node-instituci_n-field_observaciones
 features[field_instance][] = node-instituci_n-field_padre
 features[field_instance][] = node-instituci_n-field_telefono
 features[node][] = instituci_n
-features[rdf_mappings][] = node-instituci_n
 features[variable][] = ant_instituci_n
 features[variable][] = ant_pattern_instituci_n
 features[variable][] = comment_anonymous_instituci_n

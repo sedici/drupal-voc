@@ -21,7 +21,7 @@ function instituci_n_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'ant_pattern_instituci_n';
-  $strongarm->value = '[node:field_nombre_institucion]';
+  $strongarm->value = '[node:field_nombre_institucion] <?php if(isset($node->field_abreviatura[\'und\'][0][\'value\'])){ echo "(".$node->field_abreviatura[\'und\'][0][\'value\'].")";} ?>';
   $export['ant_pattern_instituci_n'] = $strongarm;
 
   $strongarm = new stdClass();
