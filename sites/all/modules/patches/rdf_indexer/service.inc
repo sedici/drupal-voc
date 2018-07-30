@@ -166,6 +166,7 @@ class RdfIndexerArc2StoreService extends SearchApiAbstractService {
       try {
         // Builds an RDF resource for the entity.
         $rdf = rdfx_get_rdf_model($index->item_type, $id);
+        $store->delete();
         $store->insert($rdf->index, $rdf->uri);
         $ret[] = $id;
       }
