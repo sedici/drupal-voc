@@ -271,6 +271,9 @@ function rdfx_add_literal(&$index, $uri, $property, EntityMetadataWrapper $wrapp
  * Returns the URI used for the given resource.
  */
 function rdfx_resource_uri($resource, $id) {
+  // Changes for example taxonomy_term to taxonomy/term -> hay otro fix en https://www.drupal.org/node/1351364 mas general
+  // in order to get correct uri in RDF.
+  $resource =   str_replace('_', '/', $resource);  
   return url($resource . '/' . $id, array('absolute' => TRUE));
 }
 
