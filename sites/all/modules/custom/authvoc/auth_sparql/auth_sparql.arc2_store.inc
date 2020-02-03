@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * auth_sparql.arc2_store.inc

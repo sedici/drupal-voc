@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * persona_view.features.inc

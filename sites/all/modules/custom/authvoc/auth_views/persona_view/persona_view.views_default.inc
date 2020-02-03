@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * persona_view.views_default.inc
@@ -69,7 +70,7 @@ function persona_view_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Campo: Contenido: Título */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -77,7 +78,7 @@ function persona_view_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Campo: Contenido: Filiación */
+  /* Field: Nodo: Filiación */
   $handler->display->display_options['fields']['field_filiaci_n_compuesta']['id'] = 'field_filiaci_n_compuesta';
   $handler->display->display_options['fields']['field_filiaci_n_compuesta']['table'] = 'field_data_field_filiaci_n_compuesta';
   $handler->display->display_options['fields']['field_filiaci_n_compuesta']['field'] = 'field_filiaci_n_compuesta';
@@ -88,7 +89,7 @@ function persona_view_views_default_views() {
     'view_mode' => 'full',
   );
   $handler->display->display_options['fields']['field_filiaci_n_compuesta']['delta_offset'] = '0';
-  /* Campo: Contenido: Mail */
+  /* Field: Nodo: Mail */
   $handler->display->display_options['fields']['field_mail']['id'] = 'field_mail';
   $handler->display->display_options['fields']['field_mail']['table'] = 'field_data_field_mail';
   $handler->display->display_options['fields']['field_mail']['field'] = 'field_mail';
@@ -96,27 +97,27 @@ function persona_view_views_default_views() {
   $handler->display->display_options['fields']['field_mail']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_mail']['type'] = 'text_plain';
   $handler->display->display_options['fields']['field_mail']['delta_offset'] = '0';
-  /* Sort criterion: Contenido: Título */
+  /* Sort criterion: Content: Title */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
   $handler->display->display_options['sorts']['title']['field'] = 'title';
   $handler->display->display_options['sorts']['title']['exposed'] = TRUE;
   $handler->display->display_options['sorts']['title']['expose']['label'] = 'Nombre';
-  /* Filter criterion: Contenido: Publicado */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Contenido: Tipo */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'persona' => 'persona',
   );
-  /* Filter criterion: Contenido: Mail (field_mail) */
+  /* Filter criterion: Nodo: Mail (field_mail) */
   $handler->display->display_options['filters']['field_mail_value']['id'] = 'field_mail_value';
   $handler->display->display_options['filters']['field_mail_value']['table'] = 'field_data_field_mail';
   $handler->display->display_options['filters']['field_mail_value']['field'] = 'field_mail_value';
@@ -198,36 +199,36 @@ function persona_view_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Relationship: Entity Reference: Referenced Entity */
+  /* Relationship: Broken/missing handler */
   $handler->display->display_options['relationships']['field_filiaci_n_target_id']['id'] = 'field_filiaci_n_target_id';
   $handler->display->display_options['relationships']['field_filiaci_n_target_id']['table'] = 'field_data_field_filiaci_n';
   $handler->display->display_options['relationships']['field_filiaci_n_target_id']['field'] = 'field_filiaci_n_target_id';
-  /* Campo: Contenido: Nid */
+  /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid_1']['id'] = 'nid_1';
   $handler->display->display_options['fields']['nid_1']['table'] = 'node';
   $handler->display->display_options['fields']['nid_1']['field'] = 'nid';
   $handler->display->display_options['fields']['nid_1']['label'] = 'nid';
   $handler->display->display_options['fields']['nid_1']['link_to_node'] = TRUE;
-  /* Campo: Contenido: Nid */
+  /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
   $handler->display->display_options['fields']['nid']['relationship'] = 'field_filiaci_n_target_id';
   $handler->display->display_options['fields']['nid']['label'] = 'institucion';
   $handler->display->display_options['fields']['nid']['link_to_node'] = TRUE;
-  /* Sort criterion: Contenido: Post date */
+  /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filter criterion: Contenido: Publicado */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Contenido: Tipo */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -235,7 +236,7 @@ function persona_view_views_default_views() {
     'persona' => 'persona',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Contenido: Nid */
+  /* Filter criterion: Content: Nid */
   $handler->display->display_options['filters']['nid']['id'] = 'nid';
   $handler->display->display_options['filters']['nid']['table'] = 'node';
   $handler->display->display_options['filters']['nid']['field'] = 'nid';
@@ -271,7 +272,7 @@ function persona_view_views_default_views() {
     t('Sort by'),
     t('Asc'),
     t('Desc'),
-    t('Contenido entity referenced from field_filiaci_n'),
+    t('field_filiaci_n_target_id'),
     t('nid'),
     t('institucion'),
     t('Page'),

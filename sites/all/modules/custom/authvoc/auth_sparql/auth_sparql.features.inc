@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * auth_sparql.features.inc
@@ -50,7 +51,6 @@ function auth_sparql_default_search_api_index() {
         "author" : { "type" : "integer", "entity_type" : "user" },
         "body:value" : { "type" : "text" },
         "changed" : { "type" : "date" },
-        "comment_count" : { "type" : "integer" },
         "created" : { "type" : "date" },
         "promote" : { "type" : "boolean" },
         "search_api_language" : { "type" : "string" },
