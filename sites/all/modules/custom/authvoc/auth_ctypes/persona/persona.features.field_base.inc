@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * persona.features.field_base.inc
@@ -199,6 +200,27 @@ function persona_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_nombre',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => 255,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
+  );
+
+  // Exported field_base: 'field_obs'.
+  $field_bases['field_obs'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_obs',
     'indexes' => array(
       'format' => array(
         0 => 'format',
