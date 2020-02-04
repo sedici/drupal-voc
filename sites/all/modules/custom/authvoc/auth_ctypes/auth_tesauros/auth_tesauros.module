@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * @file
+ * Code for the Auth Tesauros feature.
+ */
+
+include_once 'auth_tesauros.features.inc';
 /**
  * @file
  * Drupal needs this blank file.
