@@ -1,0 +1,63 @@
+version: "3"
+
+services:
+  mariadb:
+    container_name: "${PROJECT_NAME}_mariadb"
+    image: mariadb:10.1
+    stop_grace_period: 30s
+    environment:
+      MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
+      MYSQL_DATABASE: $MYSQL_DATABASE
+      MYSQL_USER: $DB_USER
+      MYSQL_PASSWORD: $DB_PASSWORD
+    ports:
+      - '33061:3306'
+#    volumes:
+#      - ./mariadb-init:/docker-entrypoint-initdb.d # Place init .sql file(s) here.
+#      - /var/run/mysqld
+
+  phpmyadmin:
+    container_name: "${PROJECT_NAME}_phpmyadmin"
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - '8081:80'
+    environment:
+      PMA_HOST: mariadb
+      MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
+    depends_on:
+      - mariadb
+
+  drupal:
+    container_name: "${PROJECT_NAME}_drupal"
+    build:
+      context: ./
+      dockerfile: Dockerfile.drupal
+#    image: drupal:7
+    environment:
+      DB_HOST: "${PROJECT_NAME}_drupal"
+      DB_USER: $DB_USER
+      DB_PASSWORD: $DB_PASSWORD
+      DB_NAME: $MYSQL_DATABASE
+      DB_DRIVER: mysql
+    volumes:
+      - ./sites/all:/var/www/html/sites/all
+      - ./settings_LOCAL.php:/var/www/html/sites/default/settings.php
+#      - drupal_core:/var/www/html
+    ports:
+      - '8080:80'
+    depends_on:
+      - mariadb
+
+#  drush:
+#    container_name: "${PROJECT_NAME}_drush"
+#    image: drush/drush:8
+#    volumes:
+#      - drupal_core:/app
+#    depends_on:
+#      - drupal
+#      - mariadb
+#    entrypoint:
+#      - drush
+#      - "--root=/var/www/html"
+#volumes:
+#  drupal_core:

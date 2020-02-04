@@ -1,0 +1,16 @@
+FROM drupal:7
+
+RUN apt update
+
+RUN apt install -y --no-install-recommends\
+	less \
+	nano \
+	wget \
+	git \
+	mysql-client # lo usa drush
+
+RUN wget --no-check-certificate --content-disposition https://github.com/drush-ops/drush/releases/download/8.3.1/drush.phar
+RUN mv drush.phar /usr/local/bin/drush
+RUN chmod +x /usr/local/bin/drush
+
+RUN docker-php-ext-install mysqli
