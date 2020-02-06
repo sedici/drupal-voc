@@ -7,7 +7,7 @@ services:
     stop_grace_period: 30s
     environment:
       MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
-      MYSQL_DATABASE: $MYSQL_DATABASE
+      MYSQL_DATABASE: $DB_NAME
       MYSQL_USER: $DB_USER
       MYSQL_PASSWORD: $DB_PASSWORD
     ports:
@@ -20,7 +20,7 @@ services:
     container_name: "${PROJECT_NAME}_phpmyadmin"
     image: phpmyadmin/phpmyadmin
     ports:
-      - '8081:80'
+      - '8082:80'
     environment:
       PMA_HOST: mariadb
       MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
@@ -34,10 +34,10 @@ services:
       dockerfile: Dockerfile.drupal
 #    image: drupal:7
     environment:
-      DB_HOST: "${PROJECT_NAME}_drupal"
+      DB_HOST: "${PROJECT_NAME}_mariadb"
       DB_USER: $DB_USER
       DB_PASSWORD: $DB_PASSWORD
-      DB_NAME: $MYSQL_DATABASE
+      DB_NAME: $DB_NAME
       DB_DRIVER: mysql
     volumes:
       - ./sites/all:/var/www/html/sites/all
