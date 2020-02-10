@@ -14,3 +14,5 @@ RUN mv drush.phar /usr/local/bin/drush
 RUN chmod +x /usr/local/bin/drush
 
 RUN docker-php-ext-install mysqli
+
+RUN usermod --non-unique --uid 1000 www-data
