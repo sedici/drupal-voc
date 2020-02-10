@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * auth_tesauros.arc2_store.inc

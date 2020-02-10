@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * auth_sparql.strongarm.inc
