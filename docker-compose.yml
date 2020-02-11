@@ -13,6 +13,7 @@ services:
     ports:
       - '33061:3306'
 #    volumes:
+#         Para restaurar un dump, descomentar siguiente línea
 #      - ./mariadb-init:/docker-entrypoint-initdb.d # Place init .sql file(s) here.
 #      - /var/run/mysqld
 
@@ -32,7 +33,6 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile.drupal
-#    image: drupal:7
     environment:
       DB_HOST: "${PROJECT_NAME}_mariadb"
       DB_USER: $DB_USER
@@ -40,14 +40,17 @@ services:
       DB_NAME: $DB_NAME
       DB_DRIVER: mysql
     volumes:
+#         Descomentar si se quiere montar el código de toda la app
+#     - ./web:/var/www/html
       - ./sites/all:/var/www/html/sites/all
       - ./settings_LOCAL.php:/var/www/html/sites/default/settings.php
-#      - drupal_core:/var/www/html
+
     ports:
       - '8080:80'
     depends_on:
       - mariadb
 
+#  @todo
 #  drush:
 #    container_name: "${PROJECT_NAME}_drush"
 #    image: drush/drush:8
