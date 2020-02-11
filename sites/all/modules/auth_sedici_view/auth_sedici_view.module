@@ -1,8 +1,0 @@
-<?php
-
-/**
- * @file
- * Code for the auth_sedici_view feature.
- */
-
-include_once 'auth_sedici_view.features.inc';

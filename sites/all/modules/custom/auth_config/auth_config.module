@@ -1,8 +1,0 @@
-<?php
-
-/**
- * @file
- * Code for the Auth Config feature.
- */
-
-include_once 'auth_config.features.inc';
