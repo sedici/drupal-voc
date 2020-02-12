@@ -650,7 +650,7 @@ function auth_sparql_default_search_api_index() {
     "server" : "rdf_indexing_server",
     "item_type" : "node",
     "options" : {
-      "datasource" : { "bundles" : [] },
+      "datasource" : { "bundles" : [ "instituci_n", "persona" ] },
       "index_directly" : 1,
       "cron_limit" : "50",
       "data_alter_callbacks" : { "search_api_alter_node_access" : { "status" : 1, "weight" : "0", "settings" : [] } },
@@ -675,6 +675,7 @@ function auth_sparql_default_search_api_index() {
         "author" : { "type" : "integer", "entity_type" : "user" },
         "body:value" : { "type" : "text" },
         "changed" : { "type" : "date" },
+        "comment_count" : { "type" : "integer" },
         "created" : { "type" : "date" },
         "promote" : { "type" : "boolean" },
         "search_api_language" : { "type" : "string" },

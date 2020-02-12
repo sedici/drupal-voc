@@ -4,5 +4,4 @@ package = AuthVoc
 version = 7.x-0.1
 dependencies[] = instituci_n
 dependencies[] = persona
-dependencies[] = rdfui
 features[features_api][] = api:2
