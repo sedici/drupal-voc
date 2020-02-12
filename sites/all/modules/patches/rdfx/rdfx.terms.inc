@@ -60,6 +60,7 @@ function rdfx_rdf_namespaces() {
     'cerif'    => 'http://spi-fm.uca.es/neologism/cerif/1.3#',
     'schema'   => 'http://schema.org/',
     'sedici'   => 'http://sedici.unlp.edu.ar/',
+
     // url() does not support empty fragment.
     'site'     => url('ns', array('absolute' => TRUE)) . '#',
   );

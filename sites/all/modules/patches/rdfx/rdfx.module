@@ -7,22 +7,20 @@
  */
 
 /**
- * Path to the ARC2 PHP library.
- */
-if (module_exists('libraries')) {
-  define('RDF_ARC2_PATH', libraries_get_path('ARC2') . '/arc');
-}
-else {
-  define('RDF_ARC2_PATH', drupal_get_path('module', 'rdfx') . '/vendor/arc');
-}
-
-/**
  * Implements hook_init().
  */
 function rdfx_init() {
+  // Get the path to the library.
+  if (module_exists('libraries')) {
+    $path = libraries_get_path('ARC2') . '/arc';
+  }
+  else {
+    $path = drupal_get_path('module', 'rdfx') . '/vendor/arc';
+  }
+
   // Attempts to load the ARC2 library, if available.
-  if (!class_exists('ARC2') && file_exists(RDF_ARC2_PATH . '/ARC2.php')) {
-    @include_once RDF_ARC2_PATH . '/ARC2.php';
+  if (!class_exists('ARC2') && file_exists($path . '/ARC2.php')) {
+    @include_once $path . '/ARC2.php';
   }
   module_load_include('inc', 'rdfx', 'rdfx.terms');
   module_load_include('inc', 'rdfx', 'rdfx.import');
@@ -112,12 +110,24 @@ function rdfx_theme() {
   );
 }
 
-function rdfx_get_rdf_model($type, $data) {
+/**
+ * @param String $type
+ *   The entity type.
+ *
+ * @param String $id
+ *   The entity instance ID.
+ *
+ * @return ARC2 Object
+ */
+function rdfx_get_rdf_model($type, $id) {
   // Loads entity and its metadata.
-  $wrapper = entity_metadata_wrapper($type, $data);
-  $entity = $wrapper->value();
+  $wrapper = entity_metadata_wrapper($type, $id);
+  $entities = entity_load($type, array($id));
+  $entity = $entities[$id];
+  $data = $wrapper->value();
+  $property_info = entity_get_property_info($type);
+  $entity_uri = rdfx_resource_uri($type, $entity);
 
-  $entity_uri = rdfx_resource_uri($type, $wrapper->getIdentifier());
   // Instantiates node resource as ARC2 class and set base and namespaces.
   $res = ARC2::getResource();
   $res->setUri($entity_uri);
@@ -128,12 +138,16 @@ function rdfx_get_rdf_model($type, $data) {
   $index = array();
 
   // Adds the RDF types of the resource if a mapping exists.
-  if (!empty($entity->rdf_mapping['rdftype'])) {
-    $index[$entity_uri]['rdf:type'] = $entity->rdf_mapping['rdftype'];
+  if (!empty($data->rdf_mapping['rdftype'])) {
+    $index[$entity_uri]['rdf:type'] = $data->rdf_mapping['rdftype'];
   }
 
   foreach ($wrapper as $name => $property) {
     if ($property->access('view')) {
+      // Substitute the schema field if the key exists.
+      if (!empty($property_info['properties'][$name]['schema field'])) {
+        $name = $property_info['properties'][$name]['schema field'];
+      }
       try {
         if ($property instanceof EntityDrupalWrapper || $property instanceof EntityValueWrapper) {
           rdfx_add_statement($index, $entity_uri, $property, $wrapper, $name);
@@ -170,8 +184,21 @@ function rdfx_get_rdf_model($type, $data) {
     }
   }
 
-  // Expand all CURIEs and attach the index to the ARC2 resource.
-  $res->index = $res->expandPNames($index);
+  // Attach the index to the ARC2 resource.
+  $res->index = $index;
+
+  // Allow other modules to alter the RDF data model before serialization.
+  // For example, a module could add elements which are not supported by the
+  // Entity API.
+  // This should only be used in special cases. The data is not added to
+  // Drupal's internal model, and is thus not accessible to other modules or
+  // during Drupal's normal rendering stream. It will only show up in non-RDFa
+  // serializations of the entity.
+  drupal_alter('rdf_model', $res, $type, $id);
+
+  // Expand all CURIEs.
+  $res->index = $res->expandPNames($res->index);
+
   return $res;
 }
 
@@ -232,7 +259,10 @@ function rdfx_add_statement(&$index, $uri, $property, EntityMetadataWrapper $wra
 function rdfx_add_resource(&$index, $uri, $property, EntityMetadataWrapper $wrapper, $name) {
   if ($id = $property->getIdentifier()) {
     $predicates = rdfx_get_predicates($wrapper, $name);
-    $object_uri = rdfx_resource_uri($property->type(), $id);
+    $type = $property->type();
+    $entities = entity_load($type, array($id));
+    $entity = $entities[$id];
+    $object_uri = rdfx_resource_uri($type, $entity);
     foreach ($predicates as $predicate) {
       $index[$uri][$predicate][] = $object_uri;
     }
@@ -269,12 +299,19 @@ function rdfx_add_literal(&$index, $uri, $property, EntityMetadataWrapper $wrapp
 
 /**
  * Returns the URI used for the given resource.
+ *
+ * @param String $type
+ *   The entity type.
+ *
+ * @param Object $entity
+ *
+ * @return String
+ *   An absolute path to the entity instance.
  */
-function rdfx_resource_uri($resource, $id) {
-  // Changes for example taxonomy_term to taxonomy/term -> hay otro fix en https://www.drupal.org/node/1351364 mas general
-  // in order to get correct uri in RDF.
-  $resource =   str_replace('_', '/', $resource);  
-  return url($resource . '/' . $id, array('absolute' => TRUE));
+function rdfx_resource_uri($type, $entity) {
+  $uri = entity_uri($type, $entity);
+  return url($uri['path'], array('absolute' => TRUE));
+
 }
 
 /**
