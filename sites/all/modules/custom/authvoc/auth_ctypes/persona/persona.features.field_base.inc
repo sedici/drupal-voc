@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * persona.features.field_base.inc
