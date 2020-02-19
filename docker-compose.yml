@@ -41,7 +41,7 @@ services:
       DB_DRIVER: mysql
     volumes:
 #         Descomentar si se quiere montar el código de toda la app
-#     - .data/web:/var/www/html
+#     - ./data/web:/var/www/html
       - ./sites/all:/var/www/html/sites/all
       - ./settings_LOCAL.php:/var/www/html/sites/default/settings.php
 
