@@ -14,7 +14,7 @@ services:
       - '33061:3306'
 #    volumes:
 #         Para restaurar un dump, descomentar siguiente línea
-#      - ./mariadb-init:/docker-entrypoint-initdb.d # Place init .sql file(s) here.
+#      - ./data/mariadb-init:/docker-entrypoint-initdb.d # Place init .sql file(s) here.
 #      - /var/run/mysqld
 
   phpmyadmin:
