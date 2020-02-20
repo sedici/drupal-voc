@@ -1,4 +1,4 @@
-name = Auth Views
+name = Voc SEDICI Views
 core = 7.x
 package = Voc Views
 version = 7.x-0.1
@@ -32,3 +32,4 @@ features[views_view][] = tesauros
 features[views_view][] = unesco
 features[views_view][] = unidades_academicas
 features_exclude[dependencies][ctools] = ctools
+project path = sites/all/modules/custom/voc_sedici

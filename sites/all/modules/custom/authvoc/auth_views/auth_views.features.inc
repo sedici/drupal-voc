@@ -1,13 +1,12 @@
 <?php
-
 /**
  * @file
- * persona_view.features.inc
+ * auth_views.features.inc
  */
 
 /**
  * Implements hook_views_api().
  */
-function persona_view_views_api($module = NULL, $api = NULL) {
+function auth_views_views_api($module = NULL, $api = NULL) {
   return array("api" => "3.0");
 }
