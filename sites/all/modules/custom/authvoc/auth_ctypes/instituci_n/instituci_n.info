@@ -1,14 +1,16 @@
 name = Institución
 core = 7.x
-package = AuthVoc
+package = Voc Types
 version = 7.x-0.5
 dependencies[] = auto_nodetitle
 dependencies[] = ctools
 dependencies[] = entityreference
 dependencies[] = features
+dependencies[] = node
 dependencies[] = strongarm
 dependencies[] = text
 dependencies[] = token
+dependencies[] = voc_sedici_config
 features[ctools][] = strongarm:strongarm:1
 features[features_api][] = api:2
 features[field_base][] = field_abreviatura

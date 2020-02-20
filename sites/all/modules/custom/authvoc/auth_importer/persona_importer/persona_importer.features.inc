@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * persona_importer.features.inc

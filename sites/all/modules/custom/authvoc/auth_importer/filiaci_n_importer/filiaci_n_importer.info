@@ -1,6 +1,6 @@
 name = Filiación Importer
 core = 7.x
-package = AuthVoc
+package = Voc Importer
 version = 7.x-0.1
 dependencies[] = ctools
 dependencies[] = feeds

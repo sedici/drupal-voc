@@ -22,6 +22,24 @@ function auth_sparql_ctools_plugin_api($module = NULL, $api = NULL) {
 function auth_sparql_rdf_default_mappings() {
   $rdf_mappings = array();
 
+  // Exported RDF mapping: user
+  $rdf_mappings['user']['user'] = array(
+    'rdftype' => array(
+      0 => 'sioc:UserAccount',
+    ),
+    'name' => array(
+      'predicates' => array(
+        0 => 'foaf:name',
+      ),
+    ),
+    'homepage' => array(
+      'predicates' => array(
+        0 => 'foaf:page',
+      ),
+      'type' => 'rel',
+    ),
+  );
+
   // Exported RDF mapping: taxonomy_vocabulary
   $rdf_mappings['taxonomy_vocabulary']['taxonomy_vocabulary'] = array(
     'rdftype' => array(
@@ -64,6 +82,36 @@ function auth_sparql_rdf_default_mappings() {
       'predicates' => array(
         0 => 'cerif:role',
       ),
+    ),
+  );
+
+  // Exported RDF mapping: tags
+  $rdf_mappings['taxonomy_term']['tags'] = array(
+    'rdftype' => array(
+      0 => 'skos:Concept',
+    ),
+    'name' => array(
+      'predicates' => array(
+        0 => 'rdfs:label',
+        1 => 'skos:prefLabel',
+      ),
+    ),
+    'description' => array(
+      'predicates' => array(
+        0 => 'skos:definition',
+      ),
+    ),
+    'vid' => array(
+      'predicates' => array(
+        0 => 'skos:inScheme',
+      ),
+      'type' => 'rel',
+    ),
+    'parent' => array(
+      'predicates' => array(
+        0 => 'skos:broader',
+      ),
+      'type' => 'rel',
     ),
   );
 
@@ -389,6 +437,132 @@ function auth_sparql_rdf_default_mappings() {
     ),
   );
 
+  // Exported RDF mapping: page
+  $rdf_mappings['node']['page'] = array(
+    'rdftype' => array(
+      0 => 'foaf:Document',
+    ),
+    'title' => array(
+      'predicates' => array(
+        0 => 'dc:title',
+      ),
+    ),
+    'created' => array(
+      'predicates' => array(
+        0 => 'dc:date',
+        1 => 'dc:created',
+      ),
+      'datatype' => 'xsd:dateTime',
+      'callback' => 'date_iso8601',
+    ),
+    'changed' => array(
+      'predicates' => array(
+        0 => 'dc:modified',
+      ),
+      'datatype' => 'xsd:dateTime',
+      'callback' => 'date_iso8601',
+    ),
+    'body' => array(
+      'predicates' => array(
+        0 => 'content:encoded',
+      ),
+    ),
+    'uid' => array(
+      'predicates' => array(
+        0 => 'sioc:has_creator',
+      ),
+      'type' => 'rel',
+    ),
+    'name' => array(
+      'predicates' => array(
+        0 => 'foaf:name',
+      ),
+    ),
+    'comment_count' => array(
+      'predicates' => array(
+        0 => 'sioc:num_replies',
+      ),
+      'datatype' => 'xsd:integer',
+    ),
+    'last_activity' => array(
+      'predicates' => array(
+        0 => 'sioc:last_activity_date',
+      ),
+      'datatype' => 'xsd:dateTime',
+      'callback' => 'date_iso8601',
+    ),
+  );
+
+  // Exported RDF mapping: article
+  $rdf_mappings['node']['article'] = array(
+    'field_image' => array(
+      'predicates' => array(
+        0 => 'og:image',
+        1 => 'rdfs:seeAlso',
+      ),
+      'type' => 'rel',
+    ),
+    'field_tags' => array(
+      'predicates' => array(
+        0 => 'dc:subject',
+      ),
+      'type' => 'rel',
+    ),
+    'rdftype' => array(
+      0 => 'sioc:Item',
+      1 => 'foaf:Document',
+    ),
+    'title' => array(
+      'predicates' => array(
+        0 => 'dc:title',
+      ),
+    ),
+    'created' => array(
+      'predicates' => array(
+        0 => 'dc:date',
+        1 => 'dc:created',
+      ),
+      'datatype' => 'xsd:dateTime',
+      'callback' => 'date_iso8601',
+    ),
+    'changed' => array(
+      'predicates' => array(
+        0 => 'dc:modified',
+      ),
+      'datatype' => 'xsd:dateTime',
+      'callback' => 'date_iso8601',
+    ),
+    'body' => array(
+      'predicates' => array(
+        0 => 'content:encoded',
+      ),
+    ),
+    'uid' => array(
+      'predicates' => array(
+        0 => 'sioc:has_creator',
+      ),
+      'type' => 'rel',
+    ),
+    'name' => array(
+      'predicates' => array(
+        0 => 'foaf:name',
+      ),
+    ),
+    'comment_count' => array(
+      'predicates' => array(
+        0 => 'sioc:num_replies',
+      ),
+      'datatype' => 'xsd:integer',
+    ),
+    'last_activity' => array(
+      'predicates' => array(
+        0 => 'sioc:last_activity_date',
+      ),
+      'datatype' => 'xsd:dateTime',
+      'callback' => 'date_iso8601',
+    ),
+  );
+
   // Exported RDF mapping: instituci_n
   $rdf_mappings['node']['instituci_n'] = array(
     'rdftype' => array(
@@ -675,7 +849,6 @@ function auth_sparql_default_search_api_index() {
         "author" : { "type" : "integer", "entity_type" : "user" },
         "body:value" : { "type" : "text" },
         "changed" : { "type" : "date" },
-        "comment_count" : { "type" : "integer" },
         "created" : { "type" : "date" },
         "promote" : { "type" : "boolean" },
         "search_api_language" : { "type" : "string" },

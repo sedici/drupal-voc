@@ -1,6 +1,6 @@
 name = Auth Importer
 core = 7.x
-package = AuthVoc
+package = Voc Importer
 version = 7.x-0.1
 dependencies[] = feeds_ui
 dependencies[] = filiaci_n_importer
