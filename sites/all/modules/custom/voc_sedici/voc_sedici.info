@@ -1,8 +1,12 @@
 name = Voc SEDICI
 core = 7.x
 package = Voc SEDICI
+dependencies[] = admin_menu
 dependencies[] = auth_views
 dependencies[] = authvoc
+dependencies[] = devel
+dependencies[] = devel_generate
+dependencies[] = toolbar
 dependencies[] = voc_sedici_config
 features[features_api][] = api:2
 project path = sites/all/modules/custom
