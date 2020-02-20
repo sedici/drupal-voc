@@ -1,6 +1,7 @@
 name = Voc SEDICI
 core = 7.x
 package = Voc SEDICI
+dependencies[] = auth_views
 dependencies[] = authvoc
 dependencies[] = voc_sedici_config
 features[features_api][] = api:2
