@@ -38,6 +38,7 @@ cc:
 install:
 	docker exec $(shell docker ps --filter name='$(PROJECT_NAME)_drupal' --format "{{ .ID }}") drush -r $(DRUPAL_ROOT) site-install standard --db-url=mysql://root:$(MYSQL_ROOT_PASSWORD)@$(PROJECT_NAME)_mariadb:3306/$(DB_NAME) install_configure_form.site_default_country=AR --account-name=$(DB_USER) --account-pass=$(DB_PASSWORD) install_configure_form.enable_update_status_module=NULL install_configure_form.enable_update_status_emails=NULL $(filter-out $@,$(MAKECMDGOALS)) -y ; \
 	docker exec $(shell docker ps --filter name='$(PROJECT_NAME)_drupal' --format "{{ .ID }}") drush -r $(DRUPAL_ROOT) en authvoc diff -y
+	docker exec $(shell docker ps --filter name='$(PROJECT_NAME)_drupal' --format "{{ .ID }}") drush -r $(DRUPAL_ROOT) fra -y
 
 logs:
 	@docker-compose logs -f $(filter-out $@,$(MAKECMDGOALS))
