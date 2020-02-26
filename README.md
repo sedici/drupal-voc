@@ -1,33 +1,19 @@
-# AuthVoc
+# Drupal Voc
+
+Drupal Voc es un módulo generado a partir de [Features](https://www.drupal.org/project/features) que permite modelar autores, instituciones y taxonomias, para luego exponeralas a través de un endpoint SPARQL.
+
+Se configurarón dos endpoints. Uno en /sparql (destinado a exponer autores y sus filiaciones) y otro en /vocabularios (expone taxonomías). 
+
+## Para realizar una instalación limpia
+
+1. Editar las variables en el archivo .env con los valores deseados
+2. Ejecutar  `make` en el directorio raiz para instanciar servicios.
+3. Ejecutar `make install` para realizar la instalación de Drupal y módulo de gestión de vocabularios.
+4. Acceder a través de `http://localhost:8080/` (o el puerto configurado en el archivo .env)
 
 
-## Anexo - Enlaces para pruebas
+## Consultas SPARQL de ejemplo
 
-A continuación se especifican algunos enlaces para utilizar la herramienta desarrollada en un servidor de pruebas http://tesis-pda.sedici.unlp.edu.ar/auth.
-
-### Repositorio SEDICI de prueba
-http://tesis-pda.sedici.unlp.edu.ar/tesina/
-	
-### Sistema de gestión de vocabularios controlados
-http://tesis-pda.sedici.unlp.edu.ar/auth
-Usuario: editorprueba
-Pass: editorprueba!
-
-### Endpoint SPARQL
-http://tesis-pda.sedici.unlp.edu.ar/auth/sparql
-
-### Consultas de prueba
-
-[Listado de autores y sus filiaciones](http://tesis-pda.sedici.unlp.edu.ar/auth/sparql?query=PREFIX+dc%3A+<http%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F>%0D%0APREFIX+sioc%3A+<http%3A%2F%2Frdfs.org%2Fsioc%2Fns%23>%0D%0APREFIX+foaf%3A+<http%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F>%0D%0APREFIX+cerif%3A+<http%3A%2F%2Fspi-fm.uca.es%2Fneologism%2Fcerif%2F1.3%23>%0D%0A%0D%0ASELECT+%3Fperson+%3Fname+%3Fsurname+%3Flink%0D%0AWHERE+%7B%0D%0A++%3Fperson+a+foaf%3APerson+%3B+%0D%0A++++foaf%3AgivenName+%3Fname+%3B+%0D%0A++++foaf%3Asurname+%3Fsurname+%3B+%0D%0A++++cerif%3AlinksToOrganisationUnit+%3Flink.+%0D%0A%7D%0D%0A&output=htmltab&jsonp=&key=&show_inline=1)
-
-[Listado de instituciones](http://tesis-pda.sedici.unlp.edu.ar/auth/sparql?query=PREFIX+sioc%3A+<http%3A%2F%2Frdfs.org%2Fsioc%2Fns%23>%0D%0APREFIX+foaf%3A+<http%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F>%0D%0A%0D%0ASELECT+%3Finst+%3Fname+%3Finit%0D%0AWHERE+%7B%0D%0A++%3Finst+a+foaf%3AOrganization+%3B+%0D%0A++++foaf%3Aname+%3Fname+%3B+%0D%0A++++sioc%3Aid+%3Finit+.+%0D%0A%7D%0D%0A&output=htmltab&jsonp=&key=&show_inline=1)
-
-[Consulta que retorna un grafo con autores con apellido Martinez o nombre Juan y sus filiaciones](http://tesis-pda.sedici.unlp.edu.ar/auth/sparql?query=PREFIX++rdf%3A++<http%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23>%0D%0APREFIX++foaf%3A+<http%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F>%0D%0APREFIX++dc%3A+++<http%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F>%0D%0APREFIX++cerif%3A+<http%3A%2F%2Fspi-fm.uca.es%2Fneologism%2Fcerif%2F1.3%23>%0D%0APREFIX++sioc%3A+<http%3A%2F%2Frdfs.org%2Fsioc%2Fns%23>%0D%0A%0D%0ACONSTRUCT+%0D%0A++%7B+%3Fperson+rdf%3Atype+foaf%3APerson+.%0D%0A++++%3Fperson+foaf%3AgivenName+%3Fname+.%0D%0A++++%3Fperson+foaf%3Ambox+%3Fmail+.%0D%0A++++%3Fperson+foaf%3Asurname+%3Fsurname+.%0D%0A++++%3Fperson+cerif%3AlinksToOrganisationUnit+%3Flink+.%0D%0A++++%3Flink+cerif%3AstartDate+%3Finicio+.%0D%0A++++%3Flink+cerif%3AendDate+%3Ffin+.%0D%0A++++%3Flink+foaf%3AOrganization+%3Forg+.%0D%0A++++%3Forg+foaf%3Aname+%3Faffiliation+.%0D%0A++++%3Forg+sioc%3Aid+%3Fid+.%7D%0D%0AWHERE%0D%0A++%7B+%3Fperson++rdf%3Atype+++++++++foaf%3APerson+%3B%0D%0A+++++++++++++foaf%3AgivenName+++%3Fname+%3B%0D%0A+++++++++++++foaf%3Asurname++%3Fsurname+.%0D%0A++++OPTIONAL%0D%0A++++++%7B+%3Fperson++foaf%3Ambox++%3Fmail+.+%7D%0D%0A++++OPTIONAL%0D%0A++++++%7B+%3Fperson++cerif%3AlinksToOrganisationUnit++%3Flink+.%0D%0A++++++++%3Flink++++cerif%3AstartDate+++++++%3Finicio+%3B%0D%0A+++++++++++++++++cerif%3AendDate+++++++++%3Ffin+%3B%0D%0A+++++++++++++++++foaf%3AOrganization+++++%3Forg+.%0D%0A++++++++%3Forg+++++foaf%3Aname+++++++++++++%3Faffiliation+%3B%0D%0A+++++++++++++++++sioc%3Aid+++++++++++++++%3Fid+.%0D%0A++++++%7D%0D%0A++++FILTER+%28+%28+regex%28%3Fname%2C+"Juan"%2C+"i"%29+%7C%7C+regex%28%3Fsurname%2C+"Martinez"%2C+"i"%29+%29++%29%0D%0A++%7D%0D%0AORDER+BY+%3Fsurname+%3Flink%0D%0AOFFSET++0%0D%0ALIMIT+++50%0D%0A&output=rdfxml&jsonp=&key=&show_inline=1)
-
-### Link al código fuente del conector
-
-[Fuente en GitHub](https://github.com/sedici/DSpace/tree/sparqlAuthorityProviders)
-
-### Link al código fuente del módulo de autoridades
-https://github.com/PabloDeAlbu/auth-voc
-
+* [Recuperar autor con nombre "Juan" y apellido "Martinez" junto con su filiación](http://localhost:8080/sparql?query=PREFIX+rdf%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0D%0APREFIX+skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0D%0APREFIX+foaf%3A+%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0D%0APREFIX+dc%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0D%0APREFIX+cerif%3A+%3Chttp%3A%2F%2Fspi-fm.uca.es%2Fneologism%2Fcerif%2F1.3%23%3E%0D%0APREFIX+sioc%3A+%3Chttp%3A%2F%2Frdfs.org%2Fsioc%2Fns%23%3E%0D%0ASELECT+%3Fperson+%3Fname+%3Fmail+%3Fsurname+%3Flink+%3Forg+%3Faffiliation+%3Fid+%3Fparent+%3FparentName+%3FidParent+%0D%0AWHERE+%7B%0D%0A%3Fperson+a+foaf%3APerson+%3B+foaf%3AgivenName+%3Fname%3B+foaf%3Asurname+%3Fsurname.+%0D%0A++++OPTIONAL+%7B+%3Fperson+foaf%3Ambox+%3Fmail+.+%7D+.+%0D%0A++++OPTIONAL+%7B+++++%0D%0A++++++++OPTIONAL+%7B+%3Fperson+cerif%3AlinksToOrganisationUnit+%3Flink+.%0D%0A++++++++++++OPTIONAL+%7B+%3Flink+cerif%3AstartDate+%3Finicio%3B+cerif%3AendDate+%3Ffin+.+%7D+.%0D%0A++++++++++++OPTIONAL+%7B+%3Flink+foaf%3AOrganization+%3Forg+.+%3Forg+foaf%3Aname+%3Faffiliation.%0D%0A++++++++++++++++OPTIONAL+%7B+%3Forg+sioc%3Aid+%3Fid+%7D.%0D%0A++++++++++++++++OPTIONAL+%7B+%3Forg+skos%3Abroader+%3Fparent.+%3Fparent+foaf%3Aname+%3FparentName+.%0D%0A++++++++++++++++++++OPTIONAL+%7B%3Fparent+sioc%3Aid+%3FidParent%7D+.%0D%0A++++++++++++++++++++OPTIONAL+%7B+%3Fparent+skos%3Abroader+%3FgParent.+%3FgParent+foaf%3Aname+%3FgParentName+.%0D%0A++++++++++++++++++++++++++++OPTIONAL+%7B%3FgParent+sioc%3Aid+%3FidGParent%7D.+%0D%0A++++++++++++++++++++++++++++%7D+%0D%0A++++++++++++++++++++++++%7D+%0D%0A++++++++++++++++++++%7D+%0D%0A++++++++++++++++%7D+%0D%0A++++++++++++%7D%0D%0AFILTER%28REGEX%28%3Fname%2C+%22%5EJuan%22%2C+%22i%22%29+%26%26+REGEX%28%3Fsurname%2C+%22Mart%22%2C+%22i%22%29%29%0D%0A%7D%0D%0AORDER+BY+%3Fsurname+%3Flink&output=htmltab&jsonp=&key=&show_inline=1)
+* [Recuperar materias que contienen "ma"](http://localhost:8080/vocabularios?query=PREFIX+skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0D%0APREFIX+sedici%3A+%3Chttp%3A%2F%2Fsedici.unlp.edu.ar%2F%3E%0D%0ASELECT+%3Fterm+%3Flabel+%3Fparent+%3FparentLabel+%0D%0AWHERE+%7B%0D%0A%3Fterm+a+sedici%3AMateria%3B+skos%3AprefLabel+%3Flabel+.%0D%0AOPTIONAL+%7B+%3Fterm+skos%3Abroader+%3Fparent+.+%3Fparent+skos%3AprefLabel+%3FparentLabel+%7D+%0D%0AFILTER%28REGEX%28%3Flabel%2C+%27ma%27%2C+%27i%27%29%29%0D%0A%7D%0D%0AORDER+BY+ASC%28%3Flabel%29&output=htmltab&jsonp=&key=&show_inline=1)
+* [Recuperar instituciones que contengan "uni"](http://localhost:8080/sparql?query=PREFIX+rdf%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0D%0APREFIX+skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0D%0APREFIX+foaf%3A+%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0D%0APREFIX+dc%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0D%0APREFIX+cerif%3A+%3Chttp%3A%2F%2Fspi-fm.uca.es%2Fneologism%2Fcerif%2F1.3%23%3E%0D%0APREFIX+sioc%3A+%3Chttp%3A%2F%2Frdfs.org%2Fsioc%2Fns%23%3E%0D%0ASELECT+%3Forg+%3Fname+%3Fid%0D%0AWHERE+%7B%0D%0A%3Forg+a+foaf%3AOrganization+.+%3Forg+foaf%3Aname+%3Fname+.+%0D%0AOPTIONAL+%7B+%3Forg+sioc%3Aid+%3Fid+%7D+%0D%0AFILTER%28REGEX%28%3Fname%2C+%22uni%22%2C+%22i%22%29%29%0D%0A%7D&output=htmltab&jsonp=&key=&show_inline=1)
