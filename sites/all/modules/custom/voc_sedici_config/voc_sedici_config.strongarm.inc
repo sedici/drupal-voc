@@ -43,7 +43,7 @@ function voc_sedici_config_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'bootstrap_cdn_cache';
   $strongarm->value = array(
-    'expire' => 1582546569,
+    'expire' => 1584105026,
     'GYRTkkbf3WDdVORvp0jeI5GF5ym1QIwzb1DHLkbHUQ0' => array(
       'title' => 'Bootstrap',
       'css' => array(

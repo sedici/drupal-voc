@@ -28,16 +28,11 @@ function auth_views_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Restablecer';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« primero';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ anterior';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'siguiente ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'ds';
-  /* Campo: Término de taxonomía: Nombre */
+  /* Field: Taxonomy term: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -66,17 +61,17 @@ function auth_views_views_default_views() {
     t('ACMCCS'),
     t('more'),
     t('Apply'),
-    t('Restablecer'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« primero'),
-    t('‹ anterior'),
-    t('siguiente ›'),
-    t('última »'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
     t('ACMCCS id'),
     t('Page'),
   );
@@ -100,7 +95,6 @@ function auth_views_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Restablecer';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '100';
   $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -119,7 +113,7 @@ function auth_views_views_default_views() {
     'title' => 'title',
     'field_abreviatura' => 'field_abreviatura',
   );
-  /* Campo: Contenido: Título */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -128,14 +122,14 @@ function auth_views_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
-  /* Campo: Contenido: Nid */
+  /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
   $handler->display->display_options['fields']['nid']['label'] = '';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
-  /* Campo: Contenido: Padre */
+  /* Field: Nodo: Padre */
   $handler->display->display_options['fields']['field_padre']['id'] = 'field_padre';
   $handler->display->display_options['fields']['field_padre']['table'] = 'field_data_field_padre';
   $handler->display->display_options['fields']['field_padre']['field'] = 'field_padre';
@@ -148,7 +142,7 @@ function auth_views_views_default_views() {
     'link' => 0,
   );
   $handler->display->display_options['fields']['field_padre']['delta_offset'] = '0';
-  /* Campo: Contenido: Abreviatura */
+  /* Field: Nodo: Abreviatura */
   $handler->display->display_options['fields']['field_abreviatura']['id'] = 'field_abreviatura';
   $handler->display->display_options['fields']['field_abreviatura']['table'] = 'field_data_field_abreviatura';
   $handler->display->display_options['fields']['field_abreviatura']['field'] = 'field_abreviatura';
@@ -156,19 +150,19 @@ function auth_views_views_default_views() {
   $handler->display->display_options['fields']['field_abreviatura']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_abreviatura']['alter']['text'] = '([field_abreviatura])';
   $handler->display->display_options['fields']['field_abreviatura']['element_label_colon'] = FALSE;
-  /* Sort criterion: Contenido: Nombre institucion (field_nombre_institucion) */
+  /* Sort criterion: Nodo: Nombre institucion (field_nombre_institucion) */
   $handler->display->display_options['sorts']['field_nombre_institucion_value']['id'] = 'field_nombre_institucion_value';
   $handler->display->display_options['sorts']['field_nombre_institucion_value']['table'] = 'field_data_field_nombre_institucion';
   $handler->display->display_options['sorts']['field_nombre_institucion_value']['field'] = 'field_nombre_institucion_value';
   $handler->display->display_options['sorts']['field_nombre_institucion_value']['exposed'] = TRUE;
   $handler->display->display_options['sorts']['field_nombre_institucion_value']['expose']['label'] = 'Nombre';
-  /* Sort criterion: Contenido: Nid */
+  /* Sort criterion: Content: Nid */
   $handler->display->display_options['sorts']['nid']['id'] = 'nid';
   $handler->display->display_options['sorts']['nid']['table'] = 'node';
   $handler->display->display_options['sorts']['nid']['field'] = 'nid';
   $handler->display->display_options['sorts']['nid']['exposed'] = TRUE;
   $handler->display->display_options['sorts']['nid']['expose']['label'] = 'ID';
-  /* Sort criterion: Contenido: Updated date */
+  /* Sort criterion: Content: Updated date */
   $handler->display->display_options['sorts']['changed']['id'] = 'changed';
   $handler->display->display_options['sorts']['changed']['table'] = 'node';
   $handler->display->display_options['sorts']['changed']['field'] = 'changed';
@@ -176,14 +170,14 @@ function auth_views_views_default_views() {
   $handler->display->display_options['sorts']['changed']['exposed'] = TRUE;
   $handler->display->display_options['sorts']['changed']['expose']['label'] = 'Fecha de actualización';
   $handler->display->display_options['sorts']['changed']['granularity'] = 'minute';
-  /* Filter criterion: Contenido: Published status */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Contenido: Nombre institucion (field_nombre_institucion) */
+  /* Filter criterion: Nodo: Nombre institucion (field_nombre_institucion) */
   $handler->display->display_options['filters']['field_nombre_institucion_value']['id'] = 'field_nombre_institucion_value';
   $handler->display->display_options['filters']['field_nombre_institucion_value']['table'] = 'field_data_field_nombre_institucion';
   $handler->display->display_options['filters']['field_nombre_institucion_value']['field'] = 'field_nombre_institucion_value';
@@ -197,7 +191,7 @@ function auth_views_views_default_views() {
   $handler->display->display_options['filters']['field_nombre_institucion_value']['expose']['remember_roles'] = array(
     2 => '2',
   );
-  /* Filter criterion: Contenido: Tipo */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -205,7 +199,7 @@ function auth_views_views_default_views() {
     'instituci_n' => 'instituci_n',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Contenido: Abreviatura (field_abreviatura) */
+  /* Filter criterion: Nodo: Abreviatura (field_abreviatura) */
   $handler->display->display_options['filters']['field_abreviatura_value']['id'] = 'field_abreviatura_value';
   $handler->display->display_options['filters']['field_abreviatura_value']['table'] = 'field_data_field_abreviatura';
   $handler->display->display_options['filters']['field_abreviatura_value']['field'] = 'field_abreviatura_value';
@@ -231,7 +225,7 @@ function auth_views_views_default_views() {
     t('Arbol de instituciones'),
     t('more'),
     t('Apply'),
-    t('Restablecer'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
@@ -273,13 +267,8 @@ function auth_views_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Restablecer';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« primero';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ anterior';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'siguiente ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'title' => 'title',
@@ -294,35 +283,35 @@ function auth_views_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Campo: Contenido: Título */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Campo: Contenido: DNI */
+  /* Field: Nodo: DNI */
   $handler->display->display_options['fields']['field_dni']['id'] = 'field_dni';
   $handler->display->display_options['fields']['field_dni']['table'] = 'field_data_field_dni';
   $handler->display->display_options['fields']['field_dni']['field'] = 'field_dni';
-  /* Campo: Contenido: Mail */
+  /* Field: Nodo: Mail */
   $handler->display->display_options['fields']['field_mail']['id'] = 'field_mail';
   $handler->display->display_options['fields']['field_mail']['table'] = 'field_data_field_mail';
   $handler->display->display_options['fields']['field_mail']['field'] = 'field_mail';
-  /* Sort criterion: Contenido: Post date */
+  /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
   $handler->display->display_options['filter_groups']['operator'] = 'OR';
-  /* Filter criterion: Contenido: Published status */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Contenido: Tipo */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -330,7 +319,7 @@ function auth_views_views_default_views() {
     'persona' => 'persona',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Contenido: Apellido (field_apellido) */
+  /* Filter criterion: Nodo: Apellido (field_apellido) */
   $handler->display->display_options['filters']['field_apellido_value']['id'] = 'field_apellido_value';
   $handler->display->display_options['filters']['field_apellido_value']['table'] = 'field_data_field_apellido';
   $handler->display->display_options['filters']['field_apellido_value']['field'] = 'field_apellido_value';
@@ -347,7 +336,7 @@ function auth_views_views_default_views() {
     3 => 0,
     4 => 0,
   );
-  /* Filter criterion: Contenido: Nombre (field_nombre) */
+  /* Filter criterion: Nodo: Nombre (field_nombre) */
   $handler->display->display_options['filters']['field_nombre_value']['id'] = 'field_nombre_value';
   $handler->display->display_options['filters']['field_nombre_value']['table'] = 'field_data_field_nombre';
   $handler->display->display_options['filters']['field_nombre_value']['field'] = 'field_nombre_value';
@@ -364,7 +353,7 @@ function auth_views_views_default_views() {
     3 => 0,
     4 => 0,
   );
-  /* Filter criterion: Contenido: DNI (field_dni) */
+  /* Filter criterion: Nodo: DNI (field_dni) */
   $handler->display->display_options['filters']['field_dni_value']['id'] = 'field_dni_value';
   $handler->display->display_options['filters']['field_dni_value']['table'] = 'field_data_field_dni';
   $handler->display->display_options['filters']['field_dni_value']['field'] = 'field_dni_value';
@@ -380,7 +369,7 @@ function auth_views_views_default_views() {
     3 => 0,
     4 => 0,
   );
-  /* Filter criterion: Contenido: Mail (field_mail) */
+  /* Filter criterion: Nodo: Mail (field_mail) */
   $handler->display->display_options['filters']['field_mail_value']['id'] = 'field_mail_value';
   $handler->display->display_options['filters']['field_mail_value']['table'] = 'field_data_field_mail';
   $handler->display->display_options['filters']['field_mail_value']['field'] = 'field_mail_value';
@@ -405,17 +394,17 @@ function auth_views_views_default_views() {
     t('Buscador de personas'),
     t('more'),
     t('Apply'),
-    t('Restablecer'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« primero'),
-    t('‹ anterior'),
-    t('siguiente ›'),
-    t('última »'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
     t('DNI'),
     t('Mail'),
     t('Apellido'),
@@ -442,7 +431,6 @@ function auth_views_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Restablecer';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '0';
   $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -456,11 +444,12 @@ function auth_views_views_default_views() {
   $handler->display->display_options['style_options']['main_field'] = 'tid';
   $handler->display->display_options['style_options']['parent_field'] = 'tid_1';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Relationship: Término de taxonomía: Término padre */
+  /* Relationship: Taxonomy term: Parent term */
   $handler->display->display_options['relationships']['parent']['id'] = 'parent';
   $handler->display->display_options['relationships']['parent']['table'] = 'taxonomy_term_hierarchy';
   $handler->display->display_options['relationships']['parent']['field'] = 'parent';
-  /* Campo: Término de taxonomía: Nombre */
+  $handler->display->display_options['relationships']['parent']['label'] = 'Padre';
+  /* Field: Taxonomy term: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -468,7 +457,7 @@ function auth_views_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['name']['link_to_taxonomy'] = TRUE;
-  /* Campo: Término de taxonomía: ID del término */
+  /* Field: Taxonomy term: Term ID */
   $handler->display->display_options['fields']['tid']['id'] = 'tid';
   $handler->display->display_options['fields']['tid']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['tid']['field'] = 'tid';
@@ -476,7 +465,7 @@ function auth_views_views_default_views() {
   $handler->display->display_options['fields']['tid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['tid']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['tid']['separator'] = '';
-  /* Campo: Término de taxonomía: ID del término */
+  /* Field: Taxonomy term: Term ID */
   $handler->display->display_options['fields']['tid_1']['id'] = 'tid_1';
   $handler->display->display_options['fields']['tid_1']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['tid_1']['field'] = 'tid';
@@ -485,18 +474,18 @@ function auth_views_views_default_views() {
   $handler->display->display_options['fields']['tid_1']['exclude'] = TRUE;
   $handler->display->display_options['fields']['tid_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['tid_1']['separator'] = '';
-  /* Sort criterion: Término de taxonomía: ID del término */
+  /* Sort criterion: Taxonomy term: Term ID */
   $handler->display->display_options['sorts']['tid']['id'] = 'tid';
   $handler->display->display_options['sorts']['tid']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['sorts']['tid']['field'] = 'tid';
-  /* Filter criterion: Vocabulario de taxonomía: Nombre de sistema */
+  /* Filter criterion: Taxonomy vocabulary: Machine name */
   $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
   $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['value'] = array(
     'tesauro_decs' => 'tesauro_decs',
   );
-  /* Filter criterion: Término de taxonomía: Nombre */
+  /* Filter criterion: Taxonomy term: Name */
   $handler->display->display_options['filters']['name']['id'] = 'name';
   $handler->display->display_options['filters']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['filters']['name']['field'] = 'name';
@@ -520,7 +509,7 @@ function auth_views_views_default_views() {
     t('DeCS'),
     t('more'),
     t('Apply'),
-    t('Restablecer'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
@@ -556,7 +545,6 @@ function auth_views_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Restablecer';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '0';
   $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -570,11 +558,12 @@ function auth_views_views_default_views() {
   $handler->display->display_options['style_options']['main_field'] = 'tid';
   $handler->display->display_options['style_options']['parent_field'] = 'tid_1';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Relationship: Término de taxonomía: Término padre */
+  /* Relationship: Taxonomy term: Parent term */
   $handler->display->display_options['relationships']['parent']['id'] = 'parent';
   $handler->display->display_options['relationships']['parent']['table'] = 'taxonomy_term_hierarchy';
   $handler->display->display_options['relationships']['parent']['field'] = 'parent';
-  /* Campo: Término de taxonomía: Nombre */
+  $handler->display->display_options['relationships']['parent']['label'] = 'Padre';
+  /* Field: Taxonomy term: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -582,7 +571,7 @@ function auth_views_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['name']['link_to_taxonomy'] = TRUE;
-  /* Campo: Término de taxonomía: ID del término */
+  /* Field: Taxonomy term: Term ID */
   $handler->display->display_options['fields']['tid']['id'] = 'tid';
   $handler->display->display_options['fields']['tid']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['tid']['field'] = 'tid';
@@ -590,7 +579,7 @@ function auth_views_views_default_views() {
   $handler->display->display_options['fields']['tid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['tid']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['tid']['separator'] = '';
-  /* Campo: Término de taxonomía: ID del término */
+  /* Field: Taxonomy term: Term ID */
   $handler->display->display_options['fields']['tid_1']['id'] = 'tid_1';
   $handler->display->display_options['fields']['tid_1']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['tid_1']['field'] = 'tid';
@@ -599,18 +588,18 @@ function auth_views_views_default_views() {
   $handler->display->display_options['fields']['tid_1']['exclude'] = TRUE;
   $handler->display->display_options['fields']['tid_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['tid_1']['separator'] = '';
-  /* Sort criterion: Término de taxonomía: ID del término */
+  /* Sort criterion: Taxonomy term: Term ID */
   $handler->display->display_options['sorts']['tid']['id'] = 'tid';
   $handler->display->display_options['sorts']['tid']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['sorts']['tid']['field'] = 'tid';
-  /* Filter criterion: Vocabulario de taxonomía: Nombre de sistema */
+  /* Filter criterion: Taxonomy vocabulary: Machine name */
   $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
   $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['value'] = array(
     'descriptores_sedici' => 'descriptores_sedici',
   );
-  /* Filter criterion: Término de taxonomía: Nombre */
+  /* Filter criterion: Taxonomy term: Name */
   $handler->display->display_options['filters']['name']['id'] = 'name';
   $handler->display->display_options['filters']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['filters']['name']['field'] = 'name';
@@ -634,7 +623,7 @@ function auth_views_views_default_views() {
     t('Descriptores SEDICI'),
     t('more'),
     t('Apply'),
-    t('Restablecer'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
@@ -670,7 +659,6 @@ function auth_views_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Restablecer';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '0';
   $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -684,11 +672,12 @@ function auth_views_views_default_views() {
   $handler->display->display_options['style_options']['main_field'] = 'tid';
   $handler->display->display_options['style_options']['parent_field'] = 'tid_1';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Relationship: Término de taxonomía: Término padre */
+  /* Relationship: Taxonomy term: Parent term */
   $handler->display->display_options['relationships']['parent']['id'] = 'parent';
   $handler->display->display_options['relationships']['parent']['table'] = 'taxonomy_term_hierarchy';
   $handler->display->display_options['relationships']['parent']['field'] = 'parent';
-  /* Campo: Término de taxonomía: Nombre */
+  $handler->display->display_options['relationships']['parent']['label'] = 'Padre';
+  /* Field: Taxonomy term: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -696,7 +685,7 @@ function auth_views_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['name']['link_to_taxonomy'] = TRUE;
-  /* Campo: Término de taxonomía: ID del término */
+  /* Field: Taxonomy term: Term ID */
   $handler->display->display_options['fields']['tid']['id'] = 'tid';
   $handler->display->display_options['fields']['tid']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['tid']['field'] = 'tid';
@@ -704,7 +693,7 @@ function auth_views_views_default_views() {
   $handler->display->display_options['fields']['tid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['tid']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['tid']['separator'] = '';
-  /* Campo: Término de taxonomía: ID del término */
+  /* Field: Taxonomy term: Term ID */
   $handler->display->display_options['fields']['tid_1']['id'] = 'tid_1';
   $handler->display->display_options['fields']['tid_1']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['tid_1']['field'] = 'tid';
@@ -713,18 +702,18 @@ function auth_views_views_default_views() {
   $handler->display->display_options['fields']['tid_1']['exclude'] = TRUE;
   $handler->display->display_options['fields']['tid_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['tid_1']['separator'] = '';
-  /* Sort criterion: Término de taxonomía: ID del término */
+  /* Sort criterion: Taxonomy term: Term ID */
   $handler->display->display_options['sorts']['tid']['id'] = 'tid';
   $handler->display->display_options['sorts']['tid']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['sorts']['tid']['field'] = 'tid';
-  /* Filter criterion: Vocabulario de taxonomía: Nombre de sistema */
+  /* Filter criterion: Taxonomy vocabulary: Machine name */
   $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
   $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['value'] = array(
     'tesauro_eurovoc' => 'tesauro_eurovoc',
   );
-  /* Filter criterion: Término de taxonomía: Nombre */
+  /* Filter criterion: Taxonomy term: Name */
   $handler->display->display_options['filters']['name']['id'] = 'name';
   $handler->display->display_options['filters']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['filters']['name']['field'] = 'name';
@@ -748,7 +737,7 @@ function auth_views_views_default_views() {
     t('Eurovoc'),
     t('more'),
     t('Apply'),
-    t('Restablecer'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
@@ -784,7 +773,6 @@ function auth_views_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Restablecer';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '100';
   $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -836,11 +824,11 @@ function auth_views_views_default_views() {
   $handler->display->display_options['relationships']['field_filiaci_n_compuesta_node']['id'] = 'field_filiaci_n_compuesta_node';
   $handler->display->display_options['relationships']['field_filiaci_n_compuesta_node']['table'] = 'field_collection_item';
   $handler->display->display_options['relationships']['field_filiaci_n_compuesta_node']['field'] = 'field_filiaci_n_compuesta_node';
-  /* Campo: Field collection item: Field collection item ID */
+  /* Field: Field collection item: Field collection item ID */
   $handler->display->display_options['fields']['item_id']['id'] = 'item_id';
   $handler->display->display_options['fields']['item_id']['table'] = 'field_collection_item';
   $handler->display->display_options['fields']['item_id']['field'] = 'item_id';
-  /* Campo: Field collection item: Institucion */
+  /* Field: Field collection item: Institucion */
   $handler->display->display_options['fields']['field_institucion']['id'] = 'field_institucion';
   $handler->display->display_options['fields']['field_institucion']['table'] = 'field_data_field_institucion';
   $handler->display->display_options['fields']['field_institucion']['field'] = 'field_institucion';
@@ -848,17 +836,18 @@ function auth_views_views_default_views() {
     'bypass_access' => 0,
     'link' => 0,
   );
-  /* Campo: Contenido: Título */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['relationship'] = 'field_filiaci_n_compuesta_node';
+  $handler->display->display_options['fields']['title']['label'] = 'Título';
   /* Filter criterion: Field collection item: Institucion (field_institucion) */
   $handler->display->display_options['filters']['field_institucion_target_id']['id'] = 'field_institucion_target_id';
   $handler->display->display_options['filters']['field_institucion_target_id']['table'] = 'field_data_field_institucion';
   $handler->display->display_options['filters']['field_institucion_target_id']['field'] = 'field_institucion_target_id';
   $handler->display->display_options['filters']['field_institucion_target_id']['operator'] = 'empty';
-  /* Filter criterion: Contenido: Apellido (field_apellido) */
+  /* Filter criterion: Nodo: Apellido (field_apellido) */
   $handler->display->display_options['filters']['field_apellido_value']['id'] = 'field_apellido_value';
   $handler->display->display_options['filters']['field_apellido_value']['table'] = 'field_data_field_apellido';
   $handler->display->display_options['filters']['field_apellido_value']['field'] = 'field_apellido_value';
@@ -884,7 +873,7 @@ function auth_views_views_default_views() {
     t('filiaciones vacias'),
     t('more'),
     t('Apply'),
-    t('Restablecer'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
@@ -924,7 +913,6 @@ function auth_views_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Restablecer';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '200';
   $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -948,14 +936,14 @@ function auth_views_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Campo: Contenido: Título */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Campo: Contenido: Padre */
+  /* Field: Nodo: Padre */
   $handler->display->display_options['fields']['field_padre']['id'] = 'field_padre';
   $handler->display->display_options['fields']['field_padre']['table'] = 'field_data_field_padre';
   $handler->display->display_options['fields']['field_padre']['field'] = 'field_padre';
@@ -964,19 +952,19 @@ function auth_views_views_default_views() {
     'link' => 0,
   );
   $handler->display->display_options['fields']['field_padre']['delta_offset'] = '0';
-  /* Sort criterion: Contenido: Nombre institucion (field_nombre_institucion) */
+  /* Sort criterion: Nodo: Nombre institucion (field_nombre_institucion) */
   $handler->display->display_options['sorts']['field_nombre_institucion_value']['id'] = 'field_nombre_institucion_value';
   $handler->display->display_options['sorts']['field_nombre_institucion_value']['table'] = 'field_data_field_nombre_institucion';
   $handler->display->display_options['sorts']['field_nombre_institucion_value']['field'] = 'field_nombre_institucion_value';
   $handler->display->display_options['sorts']['field_nombre_institucion_value']['expose']['label'] = 'Ordenar por Nombre';
-  /* Filter criterion: Contenido: Published status */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Contenido: Tipo */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -984,13 +972,13 @@ function auth_views_views_default_views() {
     'instituci_n' => 'instituci_n',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Contenido: Abreviatura (field_abreviatura) */
+  /* Filter criterion: Nodo: Abreviatura (field_abreviatura) */
   $handler->display->display_options['filters']['field_abreviatura_value']['id'] = 'field_abreviatura_value';
   $handler->display->display_options['filters']['field_abreviatura_value']['table'] = 'field_data_field_abreviatura';
   $handler->display->display_options['filters']['field_abreviatura_value']['field'] = 'field_abreviatura_value';
   $handler->display->display_options['filters']['field_abreviatura_value']['operator'] = 'empty';
   $handler->display->display_options['filters']['field_abreviatura_value']['group'] = 1;
-  /* Filter criterion: Contenido: Nombre institucion (field_nombre_institucion) */
+  /* Filter criterion: Nodo: Nombre institucion (field_nombre_institucion) */
   $handler->display->display_options['filters']['field_nombre_institucion_value']['id'] = 'field_nombre_institucion_value';
   $handler->display->display_options['filters']['field_nombre_institucion_value']['table'] = 'field_data_field_nombre_institucion';
   $handler->display->display_options['filters']['field_nombre_institucion_value']['field'] = 'field_nombre_institucion_value';
@@ -1007,7 +995,7 @@ function auth_views_views_default_views() {
     3 => 0,
     4 => 0,
   );
-  /* Filter criterion: Contenido: id_termino (field_id_termino) */
+  /* Filter criterion: Nodo: id_termino (field_id_termino) */
   $handler->display->display_options['filters']['field_id_termino_value']['id'] = 'field_id_termino_value';
   $handler->display->display_options['filters']['field_id_termino_value']['table'] = 'field_data_field_id_termino';
   $handler->display->display_options['filters']['field_id_termino_value']['field'] = 'field_id_termino_value';
@@ -1022,7 +1010,7 @@ function auth_views_views_default_views() {
     t('Instituciones argentinas sin abreviaturas'),
     t('more'),
     t('Apply'),
-    t('Restablecer'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
@@ -1058,7 +1046,6 @@ function auth_views_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Restablecer';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '25';
   $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -1082,7 +1069,7 @@ function auth_views_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Campo: Contenido: Padre */
+  /* Field: Nodo: Padre */
   $handler->display->display_options['fields']['field_padre']['id'] = 'field_padre';
   $handler->display->display_options['fields']['field_padre']['table'] = 'field_data_field_padre';
   $handler->display->display_options['fields']['field_padre']['field'] = 'field_padre';
@@ -1091,26 +1078,26 @@ function auth_views_views_default_views() {
     'link' => 0,
   );
   $handler->display->display_options['fields']['field_padre']['delta_offset'] = '0';
-  /* Campo: Contenido: Título */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Sort criterion: Contenido: Post date */
+  /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filter criterion: Contenido: Published status */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Contenido: Tipo */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -1118,13 +1105,13 @@ function auth_views_views_default_views() {
     'instituci_n' => 'instituci_n',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Contenido: Abreviatura (field_abreviatura) */
+  /* Filter criterion: Nodo: Abreviatura (field_abreviatura) */
   $handler->display->display_options['filters']['field_abreviatura_value']['id'] = 'field_abreviatura_value';
   $handler->display->display_options['filters']['field_abreviatura_value']['table'] = 'field_data_field_abreviatura';
   $handler->display->display_options['filters']['field_abreviatura_value']['field'] = 'field_abreviatura_value';
   $handler->display->display_options['filters']['field_abreviatura_value']['operator'] = 'empty';
   $handler->display->display_options['filters']['field_abreviatura_value']['group'] = 1;
-  /* Filter criterion: Contenido: Nombre institucion (field_nombre_institucion) */
+  /* Filter criterion: Nodo: Nombre institucion (field_nombre_institucion) */
   $handler->display->display_options['filters']['field_nombre_institucion_value']['id'] = 'field_nombre_institucion_value';
   $handler->display->display_options['filters']['field_nombre_institucion_value']['table'] = 'field_data_field_nombre_institucion';
   $handler->display->display_options['filters']['field_nombre_institucion_value']['field'] = 'field_nombre_institucion_value';
@@ -1150,7 +1137,7 @@ function auth_views_views_default_views() {
     t('Instituciones sin abreviaturas'),
     t('more'),
     t('Apply'),
-    t('Restablecer'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
@@ -1185,48 +1172,43 @@ function auth_views_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Restablecer';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« primero';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ anterior';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'siguiente ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
   $handler->display->display_options['style_plugin'] = 'table';
-  /* Campo: Contenido: Nid */
+  /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
-  /* Campo: Contenido: Título */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Campo: Contenido: id_termino */
+  /* Field: Nodo: id_termino */
   $handler->display->display_options['fields']['field_id_termino']['id'] = 'field_id_termino';
   $handler->display->display_options['fields']['field_id_termino']['table'] = 'field_data_field_id_termino';
   $handler->display->display_options['fields']['field_id_termino']['field'] = 'field_id_termino';
-  /* Sort criterion: Contenido: Post date */
+  /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filter criterion: Contenido: Published status */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Contenido: Tipo */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'instituci_n' => 'instituci_n',
   );
-  /* Filter criterion: Contenido: id_termino (field_id_termino) */
+  /* Filter criterion: Nodo: id_termino (field_id_termino) */
   $handler->display->display_options['filters']['field_id_termino_value']['id'] = 'field_id_termino_value';
   $handler->display->display_options['filters']['field_id_termino_value']['table'] = 'field_data_field_id_termino';
   $handler->display->display_options['filters']['field_id_termino_value']['field'] = 'field_id_termino_value';
@@ -1247,19 +1229,19 @@ function auth_views_views_default_views() {
     t('Instituciones update'),
     t('more'),
     t('Apply'),
-    t('Restablecer'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« primero'),
-    t('‹ anterior'),
-    t('siguiente ›'),
-    t('última »'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
     t('Nid'),
-    t('Título'),
+    t('Title'),
     t('id_termino'),
     t('Page'),
     t('Data export'),
@@ -1284,7 +1266,6 @@ function auth_views_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Restablecer';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '0';
   $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -1298,11 +1279,12 @@ function auth_views_views_default_views() {
   $handler->display->display_options['style_options']['main_field'] = 'tid';
   $handler->display->display_options['style_options']['parent_field'] = 'tid_1';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Relationship: Término de taxonomía: Término padre */
+  /* Relationship: Taxonomy term: Parent term */
   $handler->display->display_options['relationships']['parent']['id'] = 'parent';
   $handler->display->display_options['relationships']['parent']['table'] = 'taxonomy_term_hierarchy';
   $handler->display->display_options['relationships']['parent']['field'] = 'parent';
-  /* Campo: Término de taxonomía: Nombre */
+  $handler->display->display_options['relationships']['parent']['label'] = 'Padre';
+  /* Field: Taxonomy term: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -1310,7 +1292,7 @@ function auth_views_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['name']['link_to_taxonomy'] = TRUE;
-  /* Campo: Término de taxonomía: ID del término */
+  /* Field: Taxonomy term: Term ID */
   $handler->display->display_options['fields']['tid']['id'] = 'tid';
   $handler->display->display_options['fields']['tid']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['tid']['field'] = 'tid';
@@ -1318,7 +1300,7 @@ function auth_views_views_default_views() {
   $handler->display->display_options['fields']['tid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['tid']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['tid']['separator'] = '';
-  /* Campo: Término de taxonomía: ID del término */
+  /* Field: Taxonomy term: Term ID */
   $handler->display->display_options['fields']['tid_1']['id'] = 'tid_1';
   $handler->display->display_options['fields']['tid_1']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['tid_1']['field'] = 'tid';
@@ -1327,18 +1309,18 @@ function auth_views_views_default_views() {
   $handler->display->display_options['fields']['tid_1']['exclude'] = TRUE;
   $handler->display->display_options['fields']['tid_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['tid_1']['separator'] = '';
-  /* Sort criterion: Término de taxonomía: ID del término */
+  /* Sort criterion: Taxonomy term: Term ID */
   $handler->display->display_options['sorts']['tid']['id'] = 'tid';
   $handler->display->display_options['sorts']['tid']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['sorts']['tid']['field'] = 'tid';
-  /* Filter criterion: Vocabulario de taxonomía: Nombre de sistema */
+  /* Filter criterion: Taxonomy vocabulary: Machine name */
   $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
   $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['value'] = array(
     'materias' => 'materias',
   );
-  /* Filter criterion: Término de taxonomía: Nombre */
+  /* Filter criterion: Taxonomy term: Name */
   $handler->display->display_options['filters']['name']['id'] = 'name';
   $handler->display->display_options['filters']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['filters']['name']['field'] = 'name';
@@ -1362,7 +1344,7 @@ function auth_views_views_default_views() {
     t('Materias'),
     t('more'),
     t('Apply'),
-    t('Restablecer'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
@@ -1398,39 +1380,35 @@ function auth_views_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Restablecer';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« primero';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ anterior';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'siguiente ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'node';
   /* Relationship: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_padre_target_id']['id'] = 'field_padre_target_id';
   $handler->display->display_options['relationships']['field_padre_target_id']['table'] = 'field_data_field_padre';
   $handler->display->display_options['relationships']['field_padre_target_id']['field'] = 'field_padre_target_id';
-  /* Campo: Contenido: Título */
+  $handler->display->display_options['relationships']['field_padre_target_id']['label'] = 'Contenido entity referenced from field_padre';
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Sort criterion: Contenido: Post date */
+  /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filter criterion: Contenido: Published status */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Contenido: Tipo */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -1460,17 +1438,17 @@ function auth_views_views_default_views() {
     t('Padre e institucion'),
     t('more'),
     t('Apply'),
-    t('Restablecer'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« primero'),
-    t('‹ anterior'),
-    t('siguiente ›'),
-    t('última »'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
     t('Contenido entity referenced from field_padre'),
     t('Page'),
     t('Entity Reference'),
@@ -1495,13 +1473,8 @@ function auth_views_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Restablecer';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« primero';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ anterior';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'siguiente ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'title' => 'title',
@@ -1516,20 +1489,20 @@ function auth_views_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Relationship: Contenido: Filiación (field_filiaci_n_compuesta) */
+  /* Relationship: Nodo: Filiación (field_filiaci_n_compuesta) */
   $handler->display->display_options['relationships']['field_filiaci_n_compuesta_value']['id'] = 'field_filiaci_n_compuesta_value';
   $handler->display->display_options['relationships']['field_filiaci_n_compuesta_value']['table'] = 'field_data_field_filiaci_n_compuesta';
   $handler->display->display_options['relationships']['field_filiaci_n_compuesta_value']['field'] = 'field_filiaci_n_compuesta_value';
   $handler->display->display_options['relationships']['field_filiaci_n_compuesta_value']['delta'] = '-1';
-  /* Campo: Contenido: Apellido */
+  /* Field: Nodo: Apellido */
   $handler->display->display_options['fields']['field_apellido']['id'] = 'field_apellido';
   $handler->display->display_options['fields']['field_apellido']['table'] = 'field_data_field_apellido';
   $handler->display->display_options['fields']['field_apellido']['field'] = 'field_apellido';
-  /* Campo: Contenido: Nombre */
+  /* Field: Nodo: Nombre */
   $handler->display->display_options['fields']['field_nombre']['id'] = 'field_nombre';
   $handler->display->display_options['fields']['field_nombre']['table'] = 'field_data_field_nombre';
   $handler->display->display_options['fields']['field_nombre']['field'] = 'field_nombre';
-  /* Campo: Field collection item: Institucion */
+  /* Field: Field collection item: Institucion */
   $handler->display->display_options['fields']['field_institucion']['id'] = 'field_institucion';
   $handler->display->display_options['fields']['field_institucion']['table'] = 'field_data_field_institucion';
   $handler->display->display_options['fields']['field_institucion']['field'] = 'field_institucion';
@@ -1538,22 +1511,22 @@ function auth_views_views_default_views() {
     'bypass_access' => 0,
     'link' => 0,
   );
-  /* Sort criterion: Contenido: Apellido (field_apellido) */
+  /* Sort criterion: Nodo: Apellido (field_apellido) */
   $handler->display->display_options['sorts']['field_apellido_value']['id'] = 'field_apellido_value';
   $handler->display->display_options['sorts']['field_apellido_value']['table'] = 'field_data_field_apellido';
   $handler->display->display_options['sorts']['field_apellido_value']['field'] = 'field_apellido_value';
-  /* Sort criterion: Contenido: Nombre (field_nombre) */
+  /* Sort criterion: Nodo: Nombre (field_nombre) */
   $handler->display->display_options['sorts']['field_nombre_value']['id'] = 'field_nombre_value';
   $handler->display->display_options['sorts']['field_nombre_value']['table'] = 'field_data_field_nombre';
   $handler->display->display_options['sorts']['field_nombre_value']['field'] = 'field_nombre_value';
-  /* Filter criterion: Contenido: Published status */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Contenido: Tipo */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -1579,17 +1552,17 @@ function auth_views_views_default_views() {
     t('Personas'),
     t('more'),
     t('Apply'),
-    t('Restablecer'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« primero'),
-    t('‹ anterior'),
-    t('siguiente ›'),
-    t('última »'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
     t('field collection item from field_filiaci_n_compuesta'),
     t('Apellido'),
     t('Nombre'),
@@ -1617,7 +1590,6 @@ function auth_views_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Restablecer';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '50';
   $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -1642,14 +1614,14 @@ function auth_views_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Campo: Contenido: Título */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Campo: Contenido: Filiación */
+  /* Field: Nodo: Filiación */
   $handler->display->display_options['fields']['field_filiaci_n_compuesta']['id'] = 'field_filiaci_n_compuesta';
   $handler->display->display_options['fields']['field_filiaci_n_compuesta']['table'] = 'field_data_field_filiaci_n_compuesta';
   $handler->display->display_options['fields']['field_filiaci_n_compuesta']['field'] = 'field_filiaci_n_compuesta';
@@ -1658,22 +1630,22 @@ function auth_views_views_default_views() {
     'view_mode' => 'instituci_n_solo',
   );
   $handler->display->display_options['fields']['field_filiaci_n_compuesta']['delta_offset'] = '0';
-  /* Campo: Contenido: Link to delete content */
+  /* Field: Content: Link to delete content */
   $handler->display->display_options['fields']['delete_node']['id'] = 'delete_node';
   $handler->display->display_options['fields']['delete_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['delete_node']['field'] = 'delete_node';
   $handler->display->display_options['fields']['delete_node']['label'] = 'Borrar';
-  /* Campo: Contenido: Link to edit content */
+  /* Field: Content: Link to edit content */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['label'] = 'Editar';
-  /* Sort criterion: Contenido: Post date */
+  /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Contextual filter: Contenido: Título */
+  /* Contextual filter: Content: Title */
   $handler->display->display_options['arguments']['title']['id'] = 'title';
   $handler->display->display_options['arguments']['title']['table'] = 'node';
   $handler->display->display_options['arguments']['title']['field'] = 'title';
@@ -1685,21 +1657,21 @@ function auth_views_views_default_views() {
   $handler->display->display_options['arguments']['title']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['title']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['arguments']['title']['limit'] = '0';
-  /* Filter criterion: Contenido: Published status */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Contenido: Tipo */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'persona' => 'persona',
   );
-  /* Filter criterion: Contenido: Apellido (field_apellido) */
+  /* Filter criterion: Nodo: Apellido (field_apellido) */
   $handler->display->display_options['filters']['field_apellido_value']['id'] = 'field_apellido_value';
   $handler->display->display_options['filters']['field_apellido_value']['table'] = 'field_data_field_apellido';
   $handler->display->display_options['filters']['field_apellido_value']['field'] = 'field_apellido_value';
@@ -1712,7 +1684,7 @@ function auth_views_views_default_views() {
   $handler->display->display_options['filters']['field_apellido_value']['expose']['remember_roles'] = array(
     2 => '2',
   );
-  /* Filter criterion: Contenido: Nombre (field_nombre) */
+  /* Filter criterion: Nodo: Nombre (field_nombre) */
   $handler->display->display_options['filters']['field_nombre_value']['id'] = 'field_nombre_value';
   $handler->display->display_options['filters']['field_nombre_value']['table'] = 'field_data_field_nombre';
   $handler->display->display_options['filters']['field_nombre_value']['field'] = 'field_nombre_value';
@@ -1734,7 +1706,7 @@ function auth_views_views_default_views() {
     t('Personas duplicadas'),
     t('more'),
     t('Apply'),
-    t('Restablecer'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
@@ -1773,7 +1745,6 @@ function auth_views_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Restablecer';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
   $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -1784,13 +1755,13 @@ function auth_views_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['next'] = 'siguiente ›';
   $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
   $handler->display->display_options['style_plugin'] = 'table';
-  /* Campo: Contenido: Título */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Campo: Contenido: Filiación */
+  /* Field: Nodo: Filiación */
   $handler->display->display_options['fields']['field_filiaci_n_compuesta']['id'] = 'field_filiaci_n_compuesta';
   $handler->display->display_options['fields']['field_filiaci_n_compuesta']['table'] = 'field_data_field_filiaci_n_compuesta';
   $handler->display->display_options['fields']['field_filiaci_n_compuesta']['field'] = 'field_filiaci_n_compuesta';
@@ -1803,35 +1774,35 @@ function auth_views_views_default_views() {
     'view_mode' => 'full',
   );
   $handler->display->display_options['fields']['field_filiaci_n_compuesta']['delta_offset'] = '0';
-  /* Campo: Contenido: Observaciones */
+  /* Field: Nodo: Observaciones */
   $handler->display->display_options['fields']['field_obs']['id'] = 'field_obs';
   $handler->display->display_options['fields']['field_obs']['table'] = 'field_data_field_obs';
   $handler->display->display_options['fields']['field_obs']['field'] = 'field_obs';
-  /* Sort criterion: Contenido: Post date */
+  /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filter criterion: Contenido: Published status */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Contenido: Tipo */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'persona' => 'persona',
   );
-  /* Filter criterion: Contenido: Filiación (field_filiaci_n_compuesta) */
+  /* Filter criterion: Nodo: Filiación (field_filiaci_n_compuesta) */
   $handler->display->display_options['filters']['field_filiaci_n_compuesta_value']['id'] = 'field_filiaci_n_compuesta_value';
   $handler->display->display_options['filters']['field_filiaci_n_compuesta_value']['table'] = 'field_data_field_filiaci_n_compuesta';
   $handler->display->display_options['filters']['field_filiaci_n_compuesta_value']['field'] = 'field_filiaci_n_compuesta_value';
   $handler->display->display_options['filters']['field_filiaci_n_compuesta_value']['operator'] = 'empty';
-  /* Filter criterion: Contenido: Observaciones (field_obs) */
+  /* Filter criterion: Nodo: Observaciones (field_obs) */
   $handler->display->display_options['filters']['field_obs_value']['id'] = 'field_obs_value';
   $handler->display->display_options['filters']['field_obs_value']['table'] = 'field_data_field_obs';
   $handler->display->display_options['filters']['field_obs_value']['field'] = 'field_obs_value';
@@ -1845,7 +1816,7 @@ function auth_views_views_default_views() {
     t('Personas sin filiacion y con observaciones'),
     t('more'),
     t('Apply'),
-    t('Restablecer'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
@@ -1856,7 +1827,7 @@ function auth_views_views_default_views() {
     t('‹ anterior'),
     t('siguiente ›'),
     t('última »'),
-    t('Título'),
+    t('Title'),
     t('Filiación'),
     t('Observaciones'),
     t('Page'),
@@ -1881,13 +1852,8 @@ function auth_views_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Restablecer';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« primero';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ anterior';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'siguiente ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'title' => 'title',
@@ -1902,20 +1868,20 @@ function auth_views_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Relationship: Contenido: Filiación (field_filiaci_n_compuesta) */
+  /* Relationship: Nodo: Filiación (field_filiaci_n_compuesta) */
   $handler->display->display_options['relationships']['field_filiaci_n_compuesta_value']['id'] = 'field_filiaci_n_compuesta_value';
   $handler->display->display_options['relationships']['field_filiaci_n_compuesta_value']['table'] = 'field_data_field_filiaci_n_compuesta';
   $handler->display->display_options['relationships']['field_filiaci_n_compuesta_value']['field'] = 'field_filiaci_n_compuesta_value';
   $handler->display->display_options['relationships']['field_filiaci_n_compuesta_value']['delta'] = '-1';
-  /* Campo: Contenido: Apellido */
+  /* Field: Nodo: Apellido */
   $handler->display->display_options['fields']['field_apellido']['id'] = 'field_apellido';
   $handler->display->display_options['fields']['field_apellido']['table'] = 'field_data_field_apellido';
   $handler->display->display_options['fields']['field_apellido']['field'] = 'field_apellido';
-  /* Campo: Contenido: Nombre */
+  /* Field: Nodo: Nombre */
   $handler->display->display_options['fields']['field_nombre']['id'] = 'field_nombre';
   $handler->display->display_options['fields']['field_nombre']['table'] = 'field_data_field_nombre';
   $handler->display->display_options['fields']['field_nombre']['field'] = 'field_nombre';
-  /* Campo: Field collection item: Institucion */
+  /* Field: Field collection item: Institucion */
   $handler->display->display_options['fields']['field_institucion']['id'] = 'field_institucion';
   $handler->display->display_options['fields']['field_institucion']['table'] = 'field_data_field_institucion';
   $handler->display->display_options['fields']['field_institucion']['field'] = 'field_institucion';
@@ -1924,22 +1890,22 @@ function auth_views_views_default_views() {
     'bypass_access' => 0,
     'link' => 0,
   );
-  /* Sort criterion: Contenido: Apellido (field_apellido) */
+  /* Sort criterion: Nodo: Apellido (field_apellido) */
   $handler->display->display_options['sorts']['field_apellido_value']['id'] = 'field_apellido_value';
   $handler->display->display_options['sorts']['field_apellido_value']['table'] = 'field_data_field_apellido';
   $handler->display->display_options['sorts']['field_apellido_value']['field'] = 'field_apellido_value';
-  /* Sort criterion: Contenido: Nombre (field_nombre) */
+  /* Sort criterion: Nodo: Nombre (field_nombre) */
   $handler->display->display_options['sorts']['field_nombre_value']['id'] = 'field_nombre_value';
   $handler->display->display_options['sorts']['field_nombre_value']['table'] = 'field_data_field_nombre';
   $handler->display->display_options['sorts']['field_nombre_value']['field'] = 'field_nombre_value';
-  /* Filter criterion: Contenido: Published status */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Contenido: Tipo */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -1965,17 +1931,17 @@ function auth_views_views_default_views() {
     t('Personas'),
     t('more'),
     t('Apply'),
-    t('Restablecer'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« primero'),
-    t('‹ anterior'),
-    t('siguiente ›'),
-    t('última »'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
     t('field collection item from field_filiaci_n_compuesta'),
     t('Apellido'),
     t('Nombre'),
@@ -2003,35 +1969,30 @@ function auth_views_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Restablecer';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« primero';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ anterior';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'siguiente ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
   $handler->display->display_options['style_plugin'] = 'table';
-  /* Campo: Contenido: Nid */
+  /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
-  /* Campo: Contenido: old id */
+  /* Field: Nodo: old id */
   $handler->display->display_options['fields']['field_old_id']['id'] = 'field_old_id';
   $handler->display->display_options['fields']['field_old_id']['table'] = 'field_data_field_old_id';
   $handler->display->display_options['fields']['field_old_id']['field'] = 'field_old_id';
-  /* Sort criterion: Contenido: Post date */
+  /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filter criterion: Contenido: Published status */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Contenido: Tipo */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -2056,17 +2017,17 @@ function auth_views_views_default_views() {
     t('Personas update'),
     t('more'),
     t('Apply'),
-    t('Restablecer'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« primero'),
-    t('‹ anterior'),
-    t('siguiente ›'),
-    t('última »'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
     t('Nid'),
     t('old id'),
     t('Page'),
@@ -2092,16 +2053,11 @@ function auth_views_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Restablecer';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« primero';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ anterior';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'siguiente ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'ds';
-  /* Campo: Término de taxonomía: Nombre */
+  /* Field: Taxonomy term: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -2112,7 +2068,7 @@ function auth_views_views_default_views() {
   $handler->display->display_options['filter_groups']['groups'] = array(
     1 => 'OR',
   );
-  /* Filter criterion: Término de taxonomía: Nombre */
+  /* Filter criterion: Taxonomy term: Name */
   $handler->display->display_options['filters']['name']['id'] = 'name';
   $handler->display->display_options['filters']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['filters']['name']['field'] = 'name';
@@ -2126,7 +2082,7 @@ function auth_views_views_default_views() {
   $handler->display->display_options['filters']['name']['expose']['remember_roles'] = array(
     2 => '2',
   );
-  /* Filter criterion: Término de taxonomía: ID del término */
+  /* Filter criterion: Taxonomy term: Term ID */
   $handler->display->display_options['filters']['tid_raw']['id'] = 'tid_raw';
   $handler->display->display_options['filters']['tid_raw']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['filters']['tid_raw']['field'] = 'tid_raw';
@@ -2229,17 +2185,17 @@ function auth_views_views_default_views() {
     t('Tesauros'),
     t('more'),
     t('Apply'),
-    t('Restablecer'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
-    t('« primero'),
-    t('‹ anterior'),
-    t('siguiente ›'),
-    t('última »'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
     t('Nombre'),
     t('ID del término'),
     t('Buscar por id de tesauro'),
@@ -2270,7 +2226,6 @@ function auth_views_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Restablecer';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '0';
   $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -2284,11 +2239,12 @@ function auth_views_views_default_views() {
   $handler->display->display_options['style_options']['main_field'] = 'tid';
   $handler->display->display_options['style_options']['parent_field'] = 'tid_1';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Relationship: Término de taxonomía: Término padre */
+  /* Relationship: Taxonomy term: Parent term */
   $handler->display->display_options['relationships']['parent']['id'] = 'parent';
   $handler->display->display_options['relationships']['parent']['table'] = 'taxonomy_term_hierarchy';
   $handler->display->display_options['relationships']['parent']['field'] = 'parent';
-  /* Campo: Término de taxonomía: Nombre */
+  $handler->display->display_options['relationships']['parent']['label'] = 'Padre';
+  /* Field: Taxonomy term: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -2296,7 +2252,7 @@ function auth_views_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['name']['link_to_taxonomy'] = TRUE;
-  /* Campo: Término de taxonomía: ID del término */
+  /* Field: Taxonomy term: Term ID */
   $handler->display->display_options['fields']['tid']['id'] = 'tid';
   $handler->display->display_options['fields']['tid']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['tid']['field'] = 'tid';
@@ -2304,7 +2260,7 @@ function auth_views_views_default_views() {
   $handler->display->display_options['fields']['tid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['tid']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['tid']['separator'] = '';
-  /* Campo: Término de taxonomía: ID del término */
+  /* Field: Taxonomy term: Term ID */
   $handler->display->display_options['fields']['tid_1']['id'] = 'tid_1';
   $handler->display->display_options['fields']['tid_1']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['tid_1']['field'] = 'tid';
@@ -2313,18 +2269,18 @@ function auth_views_views_default_views() {
   $handler->display->display_options['fields']['tid_1']['exclude'] = TRUE;
   $handler->display->display_options['fields']['tid_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['tid_1']['separator'] = '';
-  /* Sort criterion: Término de taxonomía: ID del término */
+  /* Sort criterion: Taxonomy term: Term ID */
   $handler->display->display_options['sorts']['tid']['id'] = 'tid';
   $handler->display->display_options['sorts']['tid']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['sorts']['tid']['field'] = 'tid';
-  /* Filter criterion: Vocabulario de taxonomía: Nombre de sistema */
+  /* Filter criterion: Taxonomy vocabulary: Machine name */
   $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
   $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['value'] = array(
     'tesauro_unesco' => 'tesauro_unesco',
   );
-  /* Filter criterion: Término de taxonomía: Nombre */
+  /* Filter criterion: Taxonomy term: Name */
   $handler->display->display_options['filters']['name']['id'] = 'name';
   $handler->display->display_options['filters']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['filters']['name']['field'] = 'name';
@@ -2348,7 +2304,7 @@ function auth_views_views_default_views() {
     t('UNESCO'),
     t('more'),
     t('Apply'),
-    t('Restablecer'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
@@ -2384,7 +2340,6 @@ function auth_views_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Restablecer';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '0';
   $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -2428,41 +2383,42 @@ function auth_views_views_default_views() {
   $handler->display->display_options['relationships']['field_padre_target_id']['id'] = 'field_padre_target_id';
   $handler->display->display_options['relationships']['field_padre_target_id']['table'] = 'field_data_field_padre';
   $handler->display->display_options['relationships']['field_padre_target_id']['field'] = 'field_padre_target_id';
-  /* Campo: Contenido: Título */
+  $handler->display->display_options['relationships']['field_padre_target_id']['label'] = 'Contenido entity referenced from field_padre';
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Campo: Contenido: Nid */
+  /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
-  /* Sort criterion: Contenido: Post date */
+  /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Sort criterion: Contenido: Nombre (field_nombre) */
+  /* Sort criterion: Nodo: Nombre (field_nombre) */
   $handler->display->display_options['sorts']['field_nombre_value']['id'] = 'field_nombre_value';
   $handler->display->display_options['sorts']['field_nombre_value']['table'] = 'field_data_field_nombre';
   $handler->display->display_options['sorts']['field_nombre_value']['field'] = 'field_nombre_value';
-  /* Filter criterion: Contenido: Published status */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Contenido: Tipo */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'instituci_n' => 'instituci_n',
   );
-  /* Filter criterion: Contenido: id_termino_padre (field_id_termino_padre) */
+  /* Filter criterion: Nodo: id_termino_padre (field_id_termino_padre) */
   $handler->display->display_options['filters']['field_id_termino_padre_value']['id'] = 'field_id_termino_padre_value';
   $handler->display->display_options['filters']['field_id_termino_padre_value']['table'] = 'field_data_field_id_termino_padre';
   $handler->display->display_options['filters']['field_id_termino_padre_value']['field'] = 'field_id_termino_padre_value';
@@ -2476,7 +2432,7 @@ function auth_views_views_default_views() {
     t('Unidades academicas'),
     t('more'),
     t('Apply'),
-    t('Restablecer'),
+    t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
