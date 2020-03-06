@@ -290,14 +290,19 @@ function auth_views_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Nodo: DNI */
-  $handler->display->display_options['fields']['field_dni']['id'] = 'field_dni';
-  $handler->display->display_options['fields']['field_dni']['table'] = 'field_data_field_dni';
-  $handler->display->display_options['fields']['field_dni']['field'] = 'field_dni';
   /* Field: Nodo: Mail */
   $handler->display->display_options['fields']['field_mail']['id'] = 'field_mail';
   $handler->display->display_options['fields']['field_mail']['table'] = 'field_data_field_mail';
   $handler->display->display_options['fields']['field_mail']['field'] = 'field_mail';
+  /* Field: Nodo: Filiación */
+  $handler->display->display_options['fields']['field_filiaci_n_compuesta']['id'] = 'field_filiaci_n_compuesta';
+  $handler->display->display_options['fields']['field_filiaci_n_compuesta']['table'] = 'field_data_field_filiaci_n_compuesta';
+  $handler->display->display_options['fields']['field_filiaci_n_compuesta']['field'] = 'field_filiaci_n_compuesta';
+  $handler->display->display_options['fields']['field_filiaci_n_compuesta']['type'] = 'field_collection_fields';
+  $handler->display->display_options['fields']['field_filiaci_n_compuesta']['settings'] = array(
+    'view_mode' => 'instituci_n_solo',
+  );
+  $handler->display->display_options['fields']['field_filiaci_n_compuesta']['delta_offset'] = '0';
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -405,10 +410,11 @@ function auth_views_views_default_views() {
     t('‹ previous'),
     t('next ›'),
     t('last »'),
-    t('DNI'),
     t('Mail'),
+    t('Filiación'),
     t('Apellido'),
     t('Nombre'),
+    t('DNI'),
     t('Page'),
   );
   $export['buscador_de_personas'] = $view;
