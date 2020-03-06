@@ -1,0 +1,8 @@
+name = Voc SEDICI menu
+core = 7.x
+package = Voc SEDICI
+dependencies[] = features
+dependencies[] = menu
+features[features_api][] = api:2
+features[menu_custom][] = navigation
+project path = sites/all/modules/custom/voc_sedici/
