@@ -22,7 +22,7 @@ function voc_sedici_menu_menu_default_menu_links() {
     'module' => 'system',
     'hidden' => 0,
     'external' => 0,
-    'has_children' => 0,
+    'has_children' => 1,
     'expanded' => 0,
     'weight' => -50,
     'customized' => 1,
@@ -67,6 +67,23 @@ function voc_sedici_menu_menu_default_menu_links() {
     'weight' => 0,
     'customized' => 1,
   );
+  // Exported menu link: navigation_institucin:node/add/instituci-n.
+  $menu_links['navigation_institucin:node/add/instituci-n'] = array(
+    'menu_name' => 'navigation',
+    'link_path' => 'node/add/instituci-n',
+    'router_path' => 'node/add/instituci-n',
+    'link_title' => 'Institución',
+    'options' => array(
+      'identifier' => 'navigation_institucin:node/add/instituci-n',
+    ),
+    'module' => 'system',
+    'hidden' => 1,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => 0,
+    'customized' => 1,
+  );
   // Exported menu link: navigation_instituciones-sin-siglas:instituciones-sin-siglas.
   $menu_links['navigation_instituciones-sin-siglas:instituciones-sin-siglas'] = array(
     'menu_name' => 'navigation',
@@ -81,6 +98,23 @@ function voc_sedici_menu_menu_default_menu_links() {
     ),
     'module' => 'menu',
     'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => 0,
+    'customized' => 1,
+  );
+  // Exported menu link: navigation_persona:node/add/persona.
+  $menu_links['navigation_persona:node/add/persona'] = array(
+    'menu_name' => 'navigation',
+    'link_path' => 'node/add/persona',
+    'router_path' => 'node/add/persona',
+    'link_title' => 'Persona',
+    'options' => array(
+      'identifier' => 'navigation_persona:node/add/persona',
+    ),
+    'module' => 'system',
+    'hidden' => 1,
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
@@ -154,6 +188,8 @@ function voc_sedici_menu_menu_default_menu_links() {
   t('Agregar Grado');
   t('Argentinas sin siglas');
   t('Instituciones sin siglas');
+  t('Institución');
+  t('Persona');
   t('Personas duplicadas');
   t('Taxonomy Manager');
   t('Árbol de instituciones');
