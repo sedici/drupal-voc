@@ -12,9 +12,9 @@ services:
       MYSQL_PASSWORD: $DB_PASSWORD
     ports:
       - '33061:3306'
-#    volumes:
+    volumes:
 #         Para restaurar un dump, descomentar siguiente línea
-#      - ./data/mariadb-init:/docker-entrypoint-initdb.d # Place init .sql file(s) here.
+      - ./data/mariadb-init:/docker-entrypoint-initdb.d # Place init .sql file(s) here.
 #      - /var/run/mysqld
 
   phpmyadmin:
@@ -32,7 +32,7 @@ services:
     container_name: "${PROJECT_NAME}_drupal"
     build:
       context: ./
-      dockerfile: Dockerfile.drupal
+      dockerfile: Dockerfile.voc
     environment:
       DB_HOST: "${PROJECT_NAME}_mariadb"
       DB_USER: $DB_USER
@@ -41,8 +41,8 @@ services:
       DB_DRIVER: mysql
     volumes:
 #         Descomentar si se quiere montar el código de toda la app
-#     - ./data/web:/var/www/html
-      - ./sites/all:/var/www/html/sites/all
+      - ./data/auth:/var/www/html
+#      - ./sites/all:/var/www/html/sites/all
       - ./settings_LOCAL.php:/var/www/html/sites/default/settings.php
 
     ports:
