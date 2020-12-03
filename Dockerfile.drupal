@@ -7,7 +7,7 @@ RUN apt install -y --no-install-recommends\
 	nano \
 	wget \
 	git \
-	mysql-client # lo usa drush
+	mariadb-client # lo usa drush
 
 RUN wget --no-check-certificate --content-disposition https://github.com/drush-ops/drush/releases/download/8.3.1/drush.phar
 RUN mv drush.phar /usr/local/bin/drush
